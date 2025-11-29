@@ -1,4 +1,4 @@
-import "./chunk-G3PMV62Z.js";
+import "./chunk-UV5CTPV7.js";
 
 // node_modules/zustand/esm/middleware.mjs
 var reduxImpl = (reducer, initial) => (set, _get, api) => {
@@ -13,7 +13,8 @@ var redux = reduxImpl;
 var trackedConnections = /* @__PURE__ */ new Map();
 var getTrackedConnectionState = (name) => {
   const api = trackedConnections.get(name);
-  if (!api) return {};
+  if (!api)
+    return {};
   return Object.fromEntries(
     Object.entries(api.stores).map(([key, api2]) => [key, api2.getState()])
   );
@@ -37,9 +38,11 @@ var extractConnectionInformation = (store, extensionConnector, options) => {
   return { type: "tracked", store, ...newConnection };
 };
 var removeStoreFromTrackedConnections = (name, store) => {
-  if (store === void 0) return;
+  if (store === void 0)
+    return;
   const connectionInfo = trackedConnections.get(name);
-  if (!connectionInfo) return;
+  if (!connectionInfo)
+    return;
   delete connectionInfo.stores[store];
   if (Object.keys(connectionInfo.stores).length === 0) {
     trackedConnections.delete(name);
@@ -47,12 +50,14 @@ var removeStoreFromTrackedConnections = (name, store) => {
 };
 var findCallerName = (stack) => {
   var _a, _b;
-  if (!stack) return void 0;
+  if (!stack)
+    return void 0;
   const traceLines = stack.split("\n");
   const apiSetStateLineIndex = traceLines.findIndex(
     (traceLine) => traceLine.includes("api.setState")
   );
-  if (apiSetStateLineIndex < 0) return void 0;
+  if (apiSetStateLineIndex < 0)
+    return void 0;
   const callerLine = ((_a = traceLines[apiSetStateLineIndex + 1]) == null ? void 0 : _a.trim()) || "";
   return (_b = /.+ (.+) .+/.exec(callerLine)) == null ? void 0 : _b[1];
 };
@@ -68,9 +73,10 @@ var devtoolsImpl = (fn, devtoolsOptions = {}) => (set, get, api) => {
   }
   const { connection, ...connectionInformation } = extractConnectionInformation(store, extensionConnector, options);
   let isRecording = true;
-  api.setState = ((state, replace, nameOrAction) => {
+  api.setState = (state, replace, nameOrAction) => {
     const r = set(state, replace);
-    if (!isRecording) return r;
+    if (!isRecording)
+      return r;
     const action = nameOrAction === void 0 ? {
       type: anonymousActionType || findCallerName(new Error().stack) || "anonymous"
     } : typeof nameOrAction === "string" ? { type: nameOrAction } : nameOrAction;
@@ -89,7 +95,7 @@ var devtoolsImpl = (fn, devtoolsOptions = {}) => (set, get, api) => {
       }
     );
     return r;
-  });
+  };
   api.devtools = {
     cleanup: () => {
       if (connection && typeof connection.unsubscribe === "function") {
@@ -167,8 +173,10 @@ var devtoolsImpl = (fn, devtoolsOptions = {}) => (set, get, api) => {
               }
               return;
             }
-            if (!api.dispatchFromDevtools) return;
-            if (typeof api.dispatch !== "function") return;
+            if (!api.dispatchFromDevtools)
+              return;
+            if (typeof api.dispatch !== "function")
+              return;
             api.dispatch(action);
           }
         );
@@ -210,7 +218,8 @@ var devtoolsImpl = (fn, devtoolsOptions = {}) => (set, get, api) => {
           case "IMPORT_STATE": {
             const { nextLiftedState } = message.payload;
             const lastComputedState = (_a = nextLiftedState.computedStates.slice(-1)[0]) == null ? void 0 : _a.state;
-            if (!lastComputedState) return;
+            if (!lastComputedState)
+              return;
             if (store === void 0) {
               setStateFromDevtools(lastComputedState);
             } else {
@@ -242,11 +251,12 @@ var parseJsonThen = (stringified, fn) => {
       e
     );
   }
-  if (parsed !== void 0) fn(parsed);
+  if (parsed !== void 0)
+    fn(parsed);
 };
 var subscribeWithSelectorImpl = (fn) => (set, get, api) => {
   const origSubscribe = api.subscribe;
-  api.subscribe = ((selector, optListener, options) => {
+  api.subscribe = (selector, optListener, options) => {
     let listener = selector;
     if (optListener) {
       const equalityFn = (options == null ? void 0 : options.equalityFn) || Object.is;
@@ -263,7 +273,7 @@ var subscribeWithSelectorImpl = (fn) => (set, get, api) => {
       }
     }
     return origSubscribe(listener);
-  });
+  };
   const initialState = fn(set, get, api);
   return initialState;
 };
@@ -374,7 +384,8 @@ var persistImpl = (config, baseOptions) => (set, get, api) => {
   let stateFromStorage;
   const hydrate = () => {
     var _a, _b;
-    if (!storage) return;
+    if (!storage)
+      return;
     hasHydrated = false;
     hydrationListeners.forEach((cb) => {
       var _a2;

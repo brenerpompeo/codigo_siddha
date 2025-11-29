@@ -1,6 +1,6 @@
 import {
   __commonJS
-} from "./chunk-G3PMV62Z.js";
+} from "./chunk-UV5CTPV7.js";
 
 // node_modules/react/cjs/react.development.js
 var require_react_development = __commonJS({
@@ -72,10 +72,12 @@ var require_react_development = __commonJS({
         }
       }
       function getComponentNameFromType(type) {
-        if (null == type) return null;
+        if (null == type)
+          return null;
         if ("function" === typeof type)
           return type.$$typeof === REACT_CLIENT_REFERENCE ? null : type.displayName || type.name || null;
-        if ("string" === typeof type) return type;
+        if ("string" === typeof type)
+          return type;
         switch (type) {
           case REACT_FRAGMENT_TYPE:
             return "Fragment";
@@ -118,7 +120,8 @@ var require_react_development = __commonJS({
         return null;
       }
       function getTaskName(type) {
-        if (type === REACT_FRAGMENT_TYPE) return "<>";
+        if (type === REACT_FRAGMENT_TYPE)
+          return "<>";
         if ("object" === typeof type && null !== type && type.$$typeof === REACT_LAZY_TYPE)
           return "<...>";
         try {
@@ -138,7 +141,8 @@ var require_react_development = __commonJS({
       function hasValidKey(config) {
         if (hasOwnProperty.call(config, "key")) {
           var getter = Object.getOwnPropertyDescriptor(config, "key").get;
-          if (getter && getter.isReactWarning) return false;
+          if (getter && getter.isReactWarning)
+            return false;
         }
         return void 0 !== config.key;
       }
@@ -256,9 +260,11 @@ var require_react_development = __commonJS({
       }
       function mapIntoArray(children, array, escapedPrefix, nameSoFar, callback) {
         var type = typeof children;
-        if ("undefined" === type || "boolean" === type) children = null;
+        if ("undefined" === type || "boolean" === type)
+          children = null;
         var invokeCallback = false;
-        if (null === children) invokeCallback = true;
+        if (null === children)
+          invokeCallback = true;
         else
           switch (type) {
             case "bigint":
@@ -336,7 +342,8 @@ var require_react_development = __commonJS({
         return invokeCallback;
       }
       function mapChildren(children, func, context) {
-        if (null == children) return children;
+        if (null == children)
+          return children;
         var result = [], count = 0;
         mapIntoArray(children, result, "", "", function(child) {
           return func.call(context, child, count++);
@@ -439,7 +446,8 @@ var require_react_development = __commonJS({
             } catch (error) {
               ReactSharedInternals.thrownErrors.push(error);
             }
-          else ReactSharedInternals.actQueue = null;
+          else
+            ReactSharedInternals.actQueue = null;
         0 < ReactSharedInternals.thrownErrors.length ? (queue = aggregateErrors(ReactSharedInternals.thrownErrors), ReactSharedInternals.thrownErrors.length = 0, reject(queue)) : resolve(returnValue);
       }
       function flushActQueue(queue) {
@@ -459,7 +467,8 @@ var require_react_development = __commonJS({
                     return;
                   }
                   callback = continuation;
-                } else break;
+                } else
+                  break;
               } while (1);
             }
             queue.length = 0;
@@ -550,7 +559,8 @@ var require_react_development = __commonJS({
             message: "object" === typeof error && null !== error && "string" === typeof error.message ? String(error.message) : String(error),
             error
           });
-          if (!window.dispatchEvent(event)) return;
+          if (!window.dispatchEvent(event))
+            return;
         } else if ("object" === typeof process && "function" === typeof process.emit) {
           process.emit("uncaughtException", error);
           return;
@@ -651,7 +661,8 @@ var require_react_development = __commonJS({
                       ReactSharedInternals.thrownErrors.length = 0;
                       reject(_thrownError);
                     }
-                  } else resolve(returnValue);
+                  } else
+                    resolve(returnValue);
                 },
                 function(error) {
                   popActScope(prevActQueue, prevActScopeDepth);
@@ -721,7 +732,8 @@ var require_react_development = __commonJS({
             !hasOwnProperty.call(config, propName) || "key" === propName || "__self" === propName || "__source" === propName || "ref" === propName && void 0 === config.ref || (props[propName] = config[propName]);
         }
         var propName = arguments.length - 2;
-        if (1 === propName) props.children = children;
+        if (1 === propName)
+          props.children = children;
         else if (1 < propName) {
           JSCompiler_inline_result = Array(propName);
           for (var i = 0; i < propName; i++)
@@ -769,7 +781,8 @@ var require_react_development = __commonJS({
           )), hasValidKey(config) && (checkKeyStringCoercion(config.key), key = "" + config.key), config)
             hasOwnProperty.call(config, propName) && "key" !== propName && "__self" !== propName && "__source" !== propName && (i[propName] = config[propName]);
         var childrenLength = arguments.length - 2;
-        if (1 === childrenLength) i.children = children;
+        if (1 === childrenLength)
+          i.children = children;
         else if (1 < childrenLength) {
           for (var childArray = Array(childrenLength), _i = 0; _i < childrenLength; _i++)
             childArray[_i] = arguments[_i + 2];
@@ -988,4 +1001,17 @@ var require_react = __commonJS({
 export {
   require_react
 };
-//# sourceMappingURL=chunk-ULSRCYB6.js.map
+/*! Bundled license information:
+
+react/cjs/react.development.js:
+  (**
+   * @license React
+   * react.development.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+*/
+//# sourceMappingURL=chunk-WT4WRK2X.js.map

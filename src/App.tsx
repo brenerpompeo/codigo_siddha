@@ -17,6 +17,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
 function App() {
   const user = useAppStore((state) => state.user);
+  console.log("App Rendering, User:", user);
 
   return (
     <BrowserRouter>

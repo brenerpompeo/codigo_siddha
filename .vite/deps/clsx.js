@@ -1,9 +1,10 @@
 import {
   clsx,
   clsx_default
-} from "./chunk-KDVGFZWC.js";
-import "./chunk-G3PMV62Z.js";
+} from "./chunk-TMXZRJBF.js";
+import "./chunk-UV5CTPV7.js";
 export {
   clsx,
   clsx_default as default
 };
+//# sourceMappingURL=clsx.js.map

@@ -1,17 +1,18 @@
 import {
   require_react_dom
-} from "./chunk-KP7BIHBJ.js";
+} from "./chunk-4ZYETPKO.js";
 import {
   clsx
-} from "./chunk-KDVGFZWC.js";
+} from "./chunk-TMXZRJBF.js";
 import {
   require_react
-} from "./chunk-ULSRCYB6.js";
+} from "./chunk-WT4WRK2X.js";
 import {
   __commonJS,
   __export,
+  __publicField,
   __toESM
-} from "./chunk-G3PMV62Z.js";
+} from "./chunk-UV5CTPV7.js";
 
 // node_modules/es-toolkit/dist/_internal/isUnsafeProperty.js
 var require_isUnsafeProperty = __commonJS({
@@ -51,10 +52,11 @@ var require_toKey = __commonJS({
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function toKey(value) {
+      var _a;
       if (typeof value === "string" || typeof value === "symbol") {
         return value;
       }
-      if (Object.is(value?.valueOf?.(), -0)) {
+      if (Object.is((_a = value == null ? void 0 : value.valueOf) == null ? void 0 : _a.call(value), -0)) {
         return "-0";
       }
       return String(value);
@@ -207,7 +209,7 @@ var require_get = __commonJS({
           if (Array.isArray(path2)) {
             return getWithPath(object, path2, defaultValue);
           }
-          if (Object.is(path2?.valueOf(), -0)) {
+          if (Object.is(path2 == null ? void 0 : path2.valueOf(), -0)) {
             path2 = "-0";
           } else {
             path2 = String(path2);
@@ -453,10 +455,10 @@ var require_isMatchWith = __commonJS({
       if (keys.length === 0) {
         return true;
       }
-      if (stack?.has(source)) {
+      if (stack == null ? void 0 : stack.has(source)) {
         return stack.get(source) === target;
       }
-      stack?.set(source, target);
+      stack == null ? void 0 : stack.set(source, target);
       try {
         for (let i = 0; i < keys.length; i++) {
           const key = keys[i];
@@ -476,7 +478,7 @@ var require_isMatchWith = __commonJS({
         }
         return true;
       } finally {
-        stack?.delete(source);
+        stack == null ? void 0 : stack.delete(source);
       }
     }
     function isMapMatch(target, source, compare, stack) {
@@ -668,7 +670,7 @@ var require_cloneDeepWith = __commonJS({
       return cloneDeepWithImpl(obj, void 0, obj, /* @__PURE__ */ new Map(), cloneValue);
     }
     function cloneDeepWithImpl(valueToClone, keyToClone, objectToClone, stack = /* @__PURE__ */ new Map(), cloneValue = void 0) {
-      const cloned = cloneValue?.(valueToClone, keyToClone, objectToClone, stack);
+      const cloned = cloneValue == null ? void 0 : cloneValue(valueToClone, keyToClone, objectToClone, stack);
       if (cloned !== void 0) {
         return cloned;
       }
@@ -872,7 +874,7 @@ var require_cloneDeepWith2 = __commonJS({
     var tags = require_tags();
     function cloneDeepWith(obj, customizer) {
       return cloneDeepWith$1.cloneDeepWith(obj, (value, key, object, stack) => {
-        const cloned = customizer?.(value, key, object, stack);
+        const cloned = customizer == null ? void 0 : customizer(value, key, object, stack);
         if (cloned !== void 0) {
           return cloned;
         }
@@ -883,7 +885,7 @@ var require_cloneDeepWith2 = __commonJS({
           case tags.numberTag:
           case tags.stringTag:
           case tags.booleanTag: {
-            const result = new obj.constructor(obj?.valueOf());
+            const result = new obj.constructor(obj == null ? void 0 : obj.valueOf());
             cloneDeepWith$1.copyProperties(result, obj);
             return result;
           }
@@ -966,7 +968,7 @@ var require_has = __commonJS({
       let resolvedPath;
       if (Array.isArray(path2)) {
         resolvedPath = path2;
-      } else if (typeof path2 === "string" && isDeepKey.isDeepKey(path2) && object?.[path2] == null) {
+      } else if (typeof path2 === "string" && isDeepKey.isDeepKey(path2) && (object == null ? void 0 : object[path2]) == null) {
         resolvedPath = toPath.toPath(path2);
       } else {
         resolvedPath = [path2];
@@ -1004,7 +1006,7 @@ var require_matchesProperty = __commonJS({
     function matchesProperty(property, source) {
       switch (typeof property) {
         case "object": {
-          if (Object.is(property?.valueOf(), -0)) {
+          if (Object.is(property == null ? void 0 : property.valueOf(), -0)) {
             property = "-0";
           }
           break;
@@ -1181,7 +1183,8 @@ var require_with_selector_development = __commonJS({
         if (null === instRef.current) {
           var inst = { hasValue: false, value: null };
           instRef.current = inst;
-        } else inst = instRef.current;
+        } else
+          inst = instRef.current;
         instRef = useMemo14(
           function() {
             function memoizedSelector(nextSnapshot) {
@@ -1522,7 +1525,7 @@ var require_debounce = __commonJS({
         invoke();
       };
       const debounced = function(...args) {
-        if (signal?.aborted) {
+        if (signal == null ? void 0 : signal.aborted) {
           return;
         }
         pendingThis = this;
@@ -1536,7 +1539,7 @@ var require_debounce = __commonJS({
       debounced.schedule = schedule;
       debounced.cancel = cancel;
       debounced.flush = flush;
-      signal?.addEventListener("abort", cancel, { once: true });
+      signal == null ? void 0 : signal.addEventListener("abort", cancel, { once: true });
       return debounced;
     }
     exports.debounce = debounce;
@@ -1705,7 +1708,8 @@ var require_eventemitter3 = __commonJS({
     }
     if (Object.create) {
       Events.prototype = /* @__PURE__ */ Object.create(null);
-      if (!new Events().__proto__) prefix2 = false;
+      if (!new Events().__proto__)
+        prefix2 = false;
     }
     function EE(fn, context, once) {
       this.fn = fn;
@@ -1717,14 +1721,19 @@ var require_eventemitter3 = __commonJS({
         throw new TypeError("The listener must be a function");
       }
       var listener2 = new EE(fn, context || emitter, once), evt = prefix2 ? prefix2 + event : event;
-      if (!emitter._events[evt]) emitter._events[evt] = listener2, emitter._eventsCount++;
-      else if (!emitter._events[evt].fn) emitter._events[evt].push(listener2);
-      else emitter._events[evt] = [emitter._events[evt], listener2];
+      if (!emitter._events[evt])
+        emitter._events[evt] = listener2, emitter._eventsCount++;
+      else if (!emitter._events[evt].fn)
+        emitter._events[evt].push(listener2);
+      else
+        emitter._events[evt] = [emitter._events[evt], listener2];
       return emitter;
     }
     function clearEvent(emitter, evt) {
-      if (--emitter._eventsCount === 0) emitter._events = new Events();
-      else delete emitter._events[evt];
+      if (--emitter._eventsCount === 0)
+        emitter._events = new Events();
+      else
+        delete emitter._events[evt];
     }
     function EventEmitter2() {
       this._events = new Events();
@@ -1732,9 +1741,11 @@ var require_eventemitter3 = __commonJS({
     }
     EventEmitter2.prototype.eventNames = function eventNames() {
       var names = [], events, name;
-      if (this._eventsCount === 0) return names;
+      if (this._eventsCount === 0)
+        return names;
       for (name in events = this._events) {
-        if (has3.call(events, name)) names.push(prefix2 ? name.slice(1) : name);
+        if (has3.call(events, name))
+          names.push(prefix2 ? name.slice(1) : name);
       }
       if (Object.getOwnPropertySymbols) {
         return names.concat(Object.getOwnPropertySymbols(events));
@@ -1743,8 +1754,10 @@ var require_eventemitter3 = __commonJS({
     };
     EventEmitter2.prototype.listeners = function listeners(event) {
       var evt = prefix2 ? prefix2 + event : event, handlers = this._events[evt];
-      if (!handlers) return [];
-      if (handlers.fn) return [handlers.fn];
+      if (!handlers)
+        return [];
+      if (handlers.fn)
+        return [handlers.fn];
       for (var i = 0, l = handlers.length, ee = new Array(l); i < l; i++) {
         ee[i] = handlers[i].fn;
       }
@@ -1752,16 +1765,20 @@ var require_eventemitter3 = __commonJS({
     };
     EventEmitter2.prototype.listenerCount = function listenerCount(event) {
       var evt = prefix2 ? prefix2 + event : event, listeners = this._events[evt];
-      if (!listeners) return 0;
-      if (listeners.fn) return 1;
+      if (!listeners)
+        return 0;
+      if (listeners.fn)
+        return 1;
       return listeners.length;
     };
     EventEmitter2.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
       var evt = prefix2 ? prefix2 + event : event;
-      if (!this._events[evt]) return false;
+      if (!this._events[evt])
+        return false;
       var listeners = this._events[evt], len = arguments.length, args, i;
       if (listeners.fn) {
-        if (listeners.once) this.removeListener(event, listeners.fn, void 0, true);
+        if (listeners.once)
+          this.removeListener(event, listeners.fn, void 0, true);
         switch (len) {
           case 1:
             return listeners.fn.call(listeners.context), true;
@@ -1783,7 +1800,8 @@ var require_eventemitter3 = __commonJS({
       } else {
         var length = listeners.length, j;
         for (i = 0; i < length; i++) {
-          if (listeners[i].once) this.removeListener(event, listeners[i].fn, void 0, true);
+          if (listeners[i].once)
+            this.removeListener(event, listeners[i].fn, void 0, true);
           switch (len) {
             case 1:
               listeners[i].fn.call(listeners[i].context);
@@ -1798,9 +1816,10 @@ var require_eventemitter3 = __commonJS({
               listeners[i].fn.call(listeners[i].context, a1, a2, a3);
               break;
             default:
-              if (!args) for (j = 1, args = new Array(len - 1); j < len; j++) {
-                args[j - 1] = arguments[j];
-              }
+              if (!args)
+                for (j = 1, args = new Array(len - 1); j < len; j++) {
+                  args[j - 1] = arguments[j];
+                }
               listeners[i].fn.apply(listeners[i].context, args);
           }
         }
@@ -1815,7 +1834,8 @@ var require_eventemitter3 = __commonJS({
     };
     EventEmitter2.prototype.removeListener = function removeListener2(event, fn, context, once) {
       var evt = prefix2 ? prefix2 + event : event;
-      if (!this._events[evt]) return this;
+      if (!this._events[evt])
+        return this;
       if (!fn) {
         clearEvent(this, evt);
         return this;
@@ -1831,8 +1851,10 @@ var require_eventemitter3 = __commonJS({
             events.push(listeners[i]);
           }
         }
-        if (events.length) this._events[evt] = events.length === 1 ? events[0] : events;
-        else clearEvent(this, evt);
+        if (events.length)
+          this._events[evt] = events.length === 1 ? events[0] : events;
+        else
+          clearEvent(this, evt);
       }
       return this;
     };
@@ -1840,7 +1862,8 @@ var require_eventemitter3 = __commonJS({
       var evt;
       if (event) {
         evt = prefix2 ? prefix2 + event : event;
-        if (this._events[evt]) clearEvent(this, evt);
+        if (this._events[evt])
+          clearEvent(this, evt);
       } else {
         this._events = new Events();
         this._eventsCount = 0;
@@ -2117,6 +2140,7 @@ var require_isPlainObject = __commonJS({
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function isPlainObject5(object) {
+      var _a;
       if (typeof object !== "object") {
         return false;
       }
@@ -2131,7 +2155,7 @@ var require_isPlainObject = __commonJS({
         if (tag == null) {
           return false;
         }
-        const isTagReadonly = !Object.getOwnPropertyDescriptor(object, Symbol.toStringTag)?.writable;
+        const isTagReadonly = !((_a = Object.getOwnPropertyDescriptor(object, Symbol.toStringTag)) == null ? void 0 : _a.writable);
         if (isTagReadonly) {
           return false;
         }
@@ -2169,7 +2193,8 @@ var require_use_sync_external_store_with_selector_development = __commonJS({
         if (null === instRef.current) {
           var inst = { hasValue: false, value: null };
           instRef.current = inst;
-        } else inst = instRef.current;
+        } else
+          inst = instRef.current;
         instRef = useMemo14(
           function() {
             function memoizedSelector(nextSnapshot) {
@@ -2251,7 +2276,7 @@ var require_isPrototype = __commonJS({
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function isPrototype(value) {
-      const constructor = value?.constructor;
+      const constructor = value == null ? void 0 : value.constructor;
       const prototype = typeof constructor === "function" ? constructor.prototype : Object.prototype;
       return value === prototype;
     }
@@ -2395,7 +2420,7 @@ var require_unset = __commonJS({
           if (typeof path2 === "number") {
             path2 = toKey.toKey(path2);
           } else if (typeof path2 === "object") {
-            if (Object.is(path2?.valueOf(), -0)) {
+            if (Object.is(path2 == null ? void 0 : path2.valueOf(), -0)) {
               path2 = "-0";
             } else {
               path2 = String(path2);
@@ -2404,7 +2429,7 @@ var require_unset = __commonJS({
           if (isUnsafeProperty.isUnsafeProperty(path2)) {
             return false;
           }
-          if (obj?.[path2] === void 0) {
+          if ((obj == null ? void 0 : obj[path2]) === void 0) {
             return true;
           }
           try {
@@ -2415,7 +2440,7 @@ var require_unset = __commonJS({
           }
         }
         case "string": {
-          if (obj?.[path2] === void 0 && isDeepKey.isDeepKey(path2)) {
+          if ((obj == null ? void 0 : obj[path2]) === void 0 && isDeepKey.isDeepKey(path2)) {
             return unsetWithPath(obj, toPath.toPath(path2));
           }
           if (isUnsafeProperty.isUnsafeProperty(path2)) {
@@ -2433,7 +2458,7 @@ var require_unset = __commonJS({
     function unsetWithPath(obj, path2) {
       const parent = path2.length === 1 ? obj : get10.get(obj, path2.slice(0, -1));
       const lastKey = path2[path2.length - 1];
-      if (parent?.[lastKey] === void 0) {
+      if ((parent == null ? void 0 : parent[lastKey]) === void 0) {
         return true;
       }
       if (isUnsafeProperty.isUnsafeProperty(lastKey)) {
@@ -2483,7 +2508,7 @@ var require_flatten2 = __commonJS({
       const recursive = (arr, currentDepth) => {
         for (let i = 0; i < arr.length; i++) {
           const item = arr[i];
-          if (currentDepth < flooredDepth && (Array.isArray(item) || Boolean(item?.[Symbol.isConcatSpreadable]) || item !== null && typeof item === "object" && Object.prototype.toString.call(item) === "[object Arguments]")) {
+          if (currentDepth < flooredDepth && (Array.isArray(item) || Boolean(item == null ? void 0 : item[Symbol.isConcatSpreadable]) || item !== null && typeof item === "object" && Object.prototype.toString.call(item) === "[object Arguments]")) {
             if (Array.isArray(item)) {
               recursive(item, currentDepth + 1);
             } else {
@@ -3018,27 +3043,33 @@ function _extends() {
   return _extends = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends.apply(null, arguments);
 }
 function _objectWithoutProperties(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var Surface = (0, import_react3.forwardRef)((props, ref) => {
@@ -3076,27 +3107,33 @@ function _extends2() {
   return _extends2 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends2.apply(null, arguments);
 }
 function _objectWithoutProperties2(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose2(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose2(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var Layer = React2.forwardRef((props, ref) => {
@@ -3157,8 +3194,10 @@ function append(strings) {
 }
 function appendRound(digits) {
   let d = Math.floor(digits);
-  if (!(d >= 0)) throw new Error(`invalid digits: ${digits}`);
-  if (d > 15) return append;
+  if (!(d >= 0))
+    throw new Error(`invalid digits: ${digits}`);
+  if (d > 15)
+    return append;
   const k2 = 10 ** d;
   return function(strings) {
     this._ += strings[0];
@@ -3194,11 +3233,13 @@ var Path = class {
   }
   arcTo(x1, y1, x2, y2, r) {
     x1 = +x1, y1 = +y1, x2 = +x2, y2 = +y2, r = +r;
-    if (r < 0) throw new Error(`negative radius: ${r}`);
+    if (r < 0)
+      throw new Error(`negative radius: ${r}`);
     let x0 = this._x1, y0 = this._y1, x21 = x2 - x1, y21 = y2 - y1, x01 = x0 - x1, y01 = y0 - y1, l01_2 = x01 * x01 + y01 * y01;
     if (this._x1 === null) {
       this._append`M${this._x1 = x1},${this._y1 = y1}`;
-    } else if (!(l01_2 > epsilon2)) ;
+    } else if (!(l01_2 > epsilon2))
+      ;
     else if (!(Math.abs(y01 * x21 - y21 * x01) > epsilon2) || !r) {
       this._append`L${this._x1 = x1},${this._y1 = y1}`;
     } else {
@@ -3211,15 +3252,18 @@ var Path = class {
   }
   arc(x2, y2, r, a0, a1, ccw) {
     x2 = +x2, y2 = +y2, r = +r, ccw = !!ccw;
-    if (r < 0) throw new Error(`negative radius: ${r}`);
+    if (r < 0)
+      throw new Error(`negative radius: ${r}`);
     let dx = r * Math.cos(a0), dy = r * Math.sin(a0), x0 = x2 + dx, y0 = y2 + dy, cw = 1 ^ ccw, da = ccw ? a0 - a1 : a1 - a0;
     if (this._x1 === null) {
       this._append`M${x0},${y0}`;
     } else if (Math.abs(this._x1 - x0) > epsilon2 || Math.abs(this._y1 - y0) > epsilon2) {
       this._append`L${x0},${y0}`;
     }
-    if (!r) return;
-    if (da < 0) da = da % tau2 + tau2;
+    if (!r)
+      return;
+    if (da < 0)
+      da = da % tau2 + tau2;
     if (da > tauEpsilon) {
       this._append`A${r},${r},0,1,${cw},${x2 - dx},${y2 - dy}A${r},${r},0,1,${cw},${this._x1 = x0},${this._y1 = y0}`;
     } else if (da > epsilon2) {
@@ -3242,12 +3286,14 @@ path.prototype = Path.prototype;
 function withPath(shape) {
   let digits = 3;
   shape.digits = function(_) {
-    if (!arguments.length) return digits;
+    if (!arguments.length)
+      return digits;
     if (_ == null) {
       digits = null;
     } else {
       const d = Math.floor(_);
-      if (!(d >= 0)) throw new RangeError(`invalid digits: ${_}`);
+      if (!(d >= 0))
+        throw new RangeError(`invalid digits: ${_}`);
       digits = d;
     }
     return shape;
@@ -3276,7 +3322,8 @@ Linear.prototype = {
     this._point = 0;
   },
   lineEnd: function() {
-    if (this._line || this._line !== 0 && this._point === 1) this._context.closePath();
+    if (this._line || this._line !== 0 && this._point === 1)
+      this._context.closePath();
     this._line = 1 - this._line;
   },
   point: function(x2, y2) {
@@ -3288,7 +3335,6 @@ Linear.prototype = {
         break;
       case 1:
         this._point = 2;
-      // falls through
       default:
         this._context.lineTo(x2, y2);
         break;
@@ -3314,15 +3360,20 @@ function line_default(x2, y2) {
   y2 = typeof y2 === "function" ? y2 : y2 === void 0 ? y : constant_default(y2);
   function line(data) {
     var i, n = (data = array_default(data)).length, d, defined0 = false, buffer;
-    if (context == null) output = curve(buffer = path2());
+    if (context == null)
+      output = curve(buffer = path2());
     for (i = 0; i <= n; ++i) {
       if (!(i < n && defined2(d = data[i], i, data)) === defined0) {
-        if (defined0 = !defined0) output.lineStart();
-        else output.lineEnd();
+        if (defined0 = !defined0)
+          output.lineStart();
+        else
+          output.lineEnd();
       }
-      if (defined0) output.point(+x2(d, i, data), +y2(d, i, data));
+      if (defined0)
+        output.point(+x2(d, i, data), +y2(d, i, data));
     }
-    if (buffer) return output = null, buffer + "" || null;
+    if (buffer)
+      return output = null, buffer + "" || null;
   }
   line.x = function(_) {
     return arguments.length ? (x2 = typeof _ === "function" ? _ : constant_default(+_), line) : x2;
@@ -3350,7 +3401,8 @@ function area_default(x0, y0, y1) {
   y1 = typeof y1 === "function" ? y1 : y1 === void 0 ? y : constant_default(+y1);
   function area(data) {
     var i, j, k2, n = (data = array_default(data)).length, d, defined0 = false, buffer, x0z = new Array(n), y0z = new Array(n);
-    if (context == null) output = curve(buffer = path2());
+    if (context == null)
+      output = curve(buffer = path2());
     for (i = 0; i <= n; ++i) {
       if (!(i < n && defined2(d = data[i], i, data)) === defined0) {
         if (defined0 = !defined0) {
@@ -3372,7 +3424,8 @@ function area_default(x0, y0, y1) {
         output.point(x1 ? +x1(d, i, data) : x0z[i], y1 ? +y1(d, i, data) : y0z[i]);
       }
     }
-    if (buffer) return output = null, buffer + "" || null;
+    if (buffer)
+      return output = null, buffer + "" || null;
   }
   function arealine() {
     return line_default().defined(defined2).curve(curve).context(context);
@@ -3462,7 +3515,8 @@ var Bump = class {
     this._point = 0;
   }
   lineEnd() {
-    if (this._line || this._line !== 0 && this._point === 1) this._context.closePath();
+    if (this._line || this._line !== 0 && this._point === 1)
+      this._context.closePath();
     this._line = 1 - this._line;
   }
   point(x2, y2) {
@@ -3470,16 +3524,19 @@ var Bump = class {
     switch (this._point) {
       case 0: {
         this._point = 1;
-        if (this._line) this._context.lineTo(x2, y2);
-        else this._context.moveTo(x2, y2);
+        if (this._line)
+          this._context.lineTo(x2, y2);
+        else
+          this._context.moveTo(x2, y2);
         break;
       }
       case 1:
         this._point = 2;
-      // falls through
       default: {
-        if (this._x) this._context.bezierCurveTo(this._x0 = (this._x0 + x2) / 2, this._y0, this._x0, y2, x2, y2);
-        else this._context.bezierCurveTo(this._x0, this._y0 = (this._y0 + y2) / 2, x2, this._y0, x2, y2);
+        if (this._x)
+          this._context.bezierCurveTo(this._x0 = (this._x0 + x2) / 2, this._y0, this._x0, y2, x2, y2);
+        else
+          this._context.bezierCurveTo(this._x0, this._y0 = (this._y0 + y2) / 2, x2, this._y0, x2, y2);
         break;
       }
     }
@@ -3618,9 +3675,11 @@ function Symbol2(type, size) {
   size = typeof size === "function" ? size : constant_default(size === void 0 ? 64 : +size);
   function symbol() {
     let buffer;
-    if (!context) context = buffer = path2();
+    if (!context)
+      context = buffer = path2();
     type.apply(this, arguments).draw(context, +size.apply(this, arguments));
-    if (buffer) return context = null, buffer + "" || null;
+    if (buffer)
+      return context = null, buffer + "" || null;
   }
   symbol.type = function(_) {
     return arguments.length ? (type = typeof _ === "function" ? _ : constant_default(_), symbol) : type;
@@ -3667,12 +3726,12 @@ Basis.prototype = {
     switch (this._point) {
       case 3:
         point(this, this._x1, this._y1);
-      // falls through
       case 2:
         this._context.lineTo(this._x1, this._y1);
         break;
     }
-    if (this._line || this._line !== 0 && this._point === 1) this._context.closePath();
+    if (this._line || this._line !== 0 && this._point === 1)
+      this._context.closePath();
     this._line = 1 - this._line;
   },
   point: function(x2, y2) {
@@ -3688,7 +3747,6 @@ Basis.prototype = {
       case 2:
         this._point = 3;
         this._context.lineTo((5 * this._x0 + this._x1) / 6, (5 * this._y0 + this._y1) / 6);
-      // falls through
       default:
         point(this, x2, y2);
         break;
@@ -3777,7 +3835,8 @@ BasisOpen.prototype = {
     this._point = 0;
   },
   lineEnd: function() {
-    if (this._line || this._line !== 0 && this._point === 3) this._context.closePath();
+    if (this._line || this._line !== 0 && this._point === 3)
+      this._context.closePath();
     this._line = 1 - this._line;
   },
   point: function(x2, y2) {
@@ -3796,7 +3855,6 @@ BasisOpen.prototype = {
         break;
       case 3:
         this._point = 4;
-      // falls through
       default:
         point(this, x2, y2);
         break;
@@ -3840,7 +3898,7 @@ Bundle.prototype = {
     this._y.push(+y2);
   }
 };
-var bundle_default = (function custom(beta) {
+var bundle_default = function custom(beta) {
   function bundle(context) {
     return beta === 1 ? new Basis(context) : new Bundle(context, beta);
   }
@@ -3848,7 +3906,7 @@ var bundle_default = (function custom(beta) {
     return custom(+beta2);
   };
   return bundle;
-})(0.85);
+}(0.85);
 
 // node_modules/d3-shape/src/curve/cardinal.js
 function point2(that, x2, y2) {
@@ -3885,7 +3943,8 @@ Cardinal.prototype = {
         point2(this, this._x1, this._y1);
         break;
     }
-    if (this._line || this._line !== 0 && this._point === 1) this._context.closePath();
+    if (this._line || this._line !== 0 && this._point === 1)
+      this._context.closePath();
     this._line = 1 - this._line;
   },
   point: function(x2, y2) {
@@ -3901,7 +3960,6 @@ Cardinal.prototype = {
         break;
       case 2:
         this._point = 3;
-      // falls through
       default:
         point2(this, x2, y2);
         break;
@@ -3910,7 +3968,7 @@ Cardinal.prototype = {
     this._y0 = this._y1, this._y1 = this._y2, this._y2 = y2;
   }
 };
-var cardinal_default = (function custom2(tension) {
+var cardinal_default = function custom2(tension) {
   function cardinal(context) {
     return new Cardinal(context, tension);
   }
@@ -3918,7 +3976,7 @@ var cardinal_default = (function custom2(tension) {
     return custom2(+tension2);
   };
   return cardinal;
-})(0);
+}(0);
 
 // node_modules/d3-shape/src/curve/cardinalClosed.js
 function CardinalClosed(context, tension) {
@@ -3975,7 +4033,7 @@ CardinalClosed.prototype = {
     this._y0 = this._y1, this._y1 = this._y2, this._y2 = y2;
   }
 };
-var cardinalClosed_default = (function custom3(tension) {
+var cardinalClosed_default = function custom3(tension) {
   function cardinal(context) {
     return new CardinalClosed(context, tension);
   }
@@ -3983,7 +4041,7 @@ var cardinalClosed_default = (function custom3(tension) {
     return custom3(+tension2);
   };
   return cardinal;
-})(0);
+}(0);
 
 // node_modules/d3-shape/src/curve/cardinalOpen.js
 function CardinalOpen(context, tension) {
@@ -4002,7 +4060,8 @@ CardinalOpen.prototype = {
     this._point = 0;
   },
   lineEnd: function() {
-    if (this._line || this._line !== 0 && this._point === 3) this._context.closePath();
+    if (this._line || this._line !== 0 && this._point === 3)
+      this._context.closePath();
     this._line = 1 - this._line;
   },
   point: function(x2, y2) {
@@ -4020,7 +4079,6 @@ CardinalOpen.prototype = {
         break;
       case 3:
         this._point = 4;
-      // falls through
       default:
         point2(this, x2, y2);
         break;
@@ -4029,7 +4087,7 @@ CardinalOpen.prototype = {
     this._y0 = this._y1, this._y1 = this._y2, this._y2 = y2;
   }
 };
-var cardinalOpen_default = (function custom4(tension) {
+var cardinalOpen_default = function custom4(tension) {
   function cardinal(context) {
     return new CardinalOpen(context, tension);
   }
@@ -4037,7 +4095,7 @@ var cardinalOpen_default = (function custom4(tension) {
     return custom4(+tension2);
   };
   return cardinal;
-})(0);
+}(0);
 
 // node_modules/d3-shape/src/curve/catmullRom.js
 function point3(that, x2, y2) {
@@ -4078,7 +4136,8 @@ CatmullRom.prototype = {
         this.point(this._x2, this._y2);
         break;
     }
-    if (this._line || this._line !== 0 && this._point === 1) this._context.closePath();
+    if (this._line || this._line !== 0 && this._point === 1)
+      this._context.closePath();
     this._line = 1 - this._line;
   },
   point: function(x2, y2) {
@@ -4097,7 +4156,6 @@ CatmullRom.prototype = {
         break;
       case 2:
         this._point = 3;
-      // falls through
       default:
         point3(this, x2, y2);
         break;
@@ -4108,7 +4166,7 @@ CatmullRom.prototype = {
     this._y0 = this._y1, this._y1 = this._y2, this._y2 = y2;
   }
 };
-var catmullRom_default = (function custom5(alpha2) {
+var catmullRom_default = function custom5(alpha2) {
   function catmullRom(context) {
     return alpha2 ? new CatmullRom(context, alpha2) : new Cardinal(context, 0);
   }
@@ -4116,7 +4174,7 @@ var catmullRom_default = (function custom5(alpha2) {
     return custom5(+alpha3);
   };
   return catmullRom;
-})(0.5);
+}(0.5);
 
 // node_modules/d3-shape/src/curve/catmullRomClosed.js
 function CatmullRomClosed(context, alpha2) {
@@ -4179,7 +4237,7 @@ CatmullRomClosed.prototype = {
     this._y0 = this._y1, this._y1 = this._y2, this._y2 = y2;
   }
 };
-var catmullRomClosed_default = (function custom6(alpha2) {
+var catmullRomClosed_default = function custom6(alpha2) {
   function catmullRom(context) {
     return alpha2 ? new CatmullRomClosed(context, alpha2) : new CardinalClosed(context, 0);
   }
@@ -4187,7 +4245,7 @@ var catmullRomClosed_default = (function custom6(alpha2) {
     return custom6(+alpha3);
   };
   return catmullRom;
-})(0.5);
+}(0.5);
 
 // node_modules/d3-shape/src/curve/catmullRomOpen.js
 function CatmullRomOpen(context, alpha2) {
@@ -4206,7 +4264,8 @@ CatmullRomOpen.prototype = {
     this._l01_a = this._l12_a = this._l23_a = this._l01_2a = this._l12_2a = this._l23_2a = this._point = 0;
   },
   lineEnd: function() {
-    if (this._line || this._line !== 0 && this._point === 3) this._context.closePath();
+    if (this._line || this._line !== 0 && this._point === 3)
+      this._context.closePath();
     this._line = 1 - this._line;
   },
   point: function(x2, y2) {
@@ -4228,7 +4287,6 @@ CatmullRomOpen.prototype = {
         break;
       case 3:
         this._point = 4;
-      // falls through
       default:
         point3(this, x2, y2);
         break;
@@ -4239,7 +4297,7 @@ CatmullRomOpen.prototype = {
     this._y0 = this._y1, this._y1 = this._y2, this._y2 = y2;
   }
 };
-var catmullRomOpen_default = (function custom7(alpha2) {
+var catmullRomOpen_default = function custom7(alpha2) {
   function catmullRom(context) {
     return alpha2 ? new CatmullRomOpen(context, alpha2) : new CardinalOpen(context, 0);
   }
@@ -4247,7 +4305,7 @@ var catmullRomOpen_default = (function custom7(alpha2) {
     return custom7(+alpha3);
   };
   return catmullRom;
-})(0.5);
+}(0.5);
 
 // node_modules/d3-shape/src/curve/linearClosed.js
 function LinearClosed(context) {
@@ -4260,12 +4318,15 @@ LinearClosed.prototype = {
     this._point = 0;
   },
   lineEnd: function() {
-    if (this._point) this._context.closePath();
+    if (this._point)
+      this._context.closePath();
   },
   point: function(x2, y2) {
     x2 = +x2, y2 = +y2;
-    if (this._point) this._context.lineTo(x2, y2);
-    else this._point = 1, this._context.moveTo(x2, y2);
+    if (this._point)
+      this._context.lineTo(x2, y2);
+    else
+      this._point = 1, this._context.moveTo(x2, y2);
   }
 };
 function linearClosed_default(context) {
@@ -4311,13 +4372,15 @@ MonotoneX.prototype = {
         point4(this, this._t0, slope2(this, this._t0));
         break;
     }
-    if (this._line || this._line !== 0 && this._point === 1) this._context.closePath();
+    if (this._line || this._line !== 0 && this._point === 1)
+      this._context.closePath();
     this._line = 1 - this._line;
   },
   point: function(x2, y2) {
     var t13 = NaN;
     x2 = +x2, y2 = +y2;
-    if (x2 === this._x1 && y2 === this._y1) return;
+    if (x2 === this._x1 && y2 === this._y1)
+      return;
     switch (this._point) {
       case 0:
         this._point = 1;
@@ -4397,7 +4460,8 @@ Natural.prototype = {
         }
       }
     }
-    if (this._line || this._line !== 0 && n === 1) this._context.closePath();
+    if (this._line || this._line !== 0 && n === 1)
+      this._context.closePath();
     this._line = 1 - this._line;
     this._x = this._y = null;
   },
@@ -4409,13 +4473,17 @@ Natural.prototype = {
 function controlPoints(x2) {
   var i, n = x2.length - 1, m, a2 = new Array(n), b = new Array(n), r = new Array(n);
   a2[0] = 0, b[0] = 2, r[0] = x2[0] + 2 * x2[1];
-  for (i = 1; i < n - 1; ++i) a2[i] = 1, b[i] = 4, r[i] = 4 * x2[i] + 2 * x2[i + 1];
+  for (i = 1; i < n - 1; ++i)
+    a2[i] = 1, b[i] = 4, r[i] = 4 * x2[i] + 2 * x2[i + 1];
   a2[n - 1] = 2, b[n - 1] = 7, r[n - 1] = 8 * x2[n - 1] + x2[n];
-  for (i = 1; i < n; ++i) m = a2[i] / b[i - 1], b[i] -= m, r[i] -= m * r[i - 1];
+  for (i = 1; i < n; ++i)
+    m = a2[i] / b[i - 1], b[i] -= m, r[i] -= m * r[i - 1];
   a2[n - 1] = r[n - 1] / b[n - 1];
-  for (i = n - 2; i >= 0; --i) a2[i] = (r[i] - a2[i + 1]) / b[i];
+  for (i = n - 2; i >= 0; --i)
+    a2[i] = (r[i] - a2[i + 1]) / b[i];
   b[n - 1] = (x2[n] + a2[n - 1]) / 2;
-  for (i = 0; i < n - 1; ++i) b[i] = 2 * x2[i + 1] - a2[i + 1];
+  for (i = 0; i < n - 1; ++i)
+    b[i] = 2 * x2[i + 1] - a2[i + 1];
   return [a2, b];
 }
 function natural_default(context) {
@@ -4439,9 +4507,12 @@ Step.prototype = {
     this._point = 0;
   },
   lineEnd: function() {
-    if (0 < this._t && this._t < 1 && this._point === 2) this._context.lineTo(this._x, this._y);
-    if (this._line || this._line !== 0 && this._point === 1) this._context.closePath();
-    if (this._line >= 0) this._t = 1 - this._t, this._line = 1 - this._line;
+    if (0 < this._t && this._t < 1 && this._point === 2)
+      this._context.lineTo(this._x, this._y);
+    if (this._line || this._line !== 0 && this._point === 1)
+      this._context.closePath();
+    if (this._line >= 0)
+      this._t = 1 - this._t, this._line = 1 - this._line;
   },
   point: function(x2, y2) {
     x2 = +x2, y2 = +y2;
@@ -4452,7 +4523,6 @@ Step.prototype = {
         break;
       case 1:
         this._point = 2;
-      // falls through
       default: {
         if (this._t <= 0) {
           this._context.lineTo(this._x, y2);
@@ -4480,7 +4550,8 @@ function stepAfter(context) {
 
 // node_modules/d3-shape/src/offset/none.js
 function none_default(series, order) {
-  if (!((n = series.length) > 1)) return;
+  if (!((n = series.length) > 1))
+    return;
   for (var i = 1, j, s0, s1 = series[order[0]], n, m = s1.length; i < n; ++i) {
     s0 = s1, s1 = series[order[i]];
     for (j = 0; j < m; ++j) {
@@ -4492,7 +4563,8 @@ function none_default(series, order) {
 // node_modules/d3-shape/src/order/none.js
 function none_default2(series) {
   var n = series.length, o = new Array(n);
-  while (--n >= 0) o[n] = n;
+  while (--n >= 0)
+    o[n] = n;
   return o;
 }
 
@@ -4537,19 +4609,25 @@ function stack_default() {
 
 // node_modules/d3-shape/src/offset/expand.js
 function expand_default(series, order) {
-  if (!((n = series.length) > 0)) return;
+  if (!((n = series.length) > 0))
+    return;
   for (var i, n, j = 0, m = series[0].length, y2; j < m; ++j) {
-    for (y2 = i = 0; i < n; ++i) y2 += series[i][j][1] || 0;
-    if (y2) for (i = 0; i < n; ++i) series[i][j][1] /= y2;
+    for (y2 = i = 0; i < n; ++i)
+      y2 += series[i][j][1] || 0;
+    if (y2)
+      for (i = 0; i < n; ++i)
+        series[i][j][1] /= y2;
   }
   none_default(series, order);
 }
 
 // node_modules/d3-shape/src/offset/silhouette.js
 function silhouette_default(series, order) {
-  if (!((n = series.length) > 0)) return;
+  if (!((n = series.length) > 0))
+    return;
   for (var j = 0, s0 = series[order[0]], n, m = s0.length; j < m; ++j) {
-    for (var i = 0, y2 = 0; i < n; ++i) y2 += series[i][j][1] || 0;
+    for (var i = 0, y2 = 0; i < n; ++i)
+      y2 += series[i][j][1] || 0;
     s0[j][1] += s0[j][0] = -y2 / 2;
   }
   none_default(series, order);
@@ -4557,7 +4635,8 @@ function silhouette_default(series, order) {
 
 // node_modules/d3-shape/src/offset/wiggle.js
 function wiggle_default(series, order) {
-  if (!((n = series.length) > 0) || !((m = (s0 = series[order[0]]).length) > 0)) return;
+  if (!((n = series.length) > 0) || !((m = (s0 = series[order[0]]).length) > 0))
+    return;
   for (var y2 = 0, j = 1, s0, m, n; j < m; ++j) {
     for (var i = 0, s1 = 0, s2 = 0; i < n; ++i) {
       var si = series[order[i]], sij0 = si[j][1] || 0, sij1 = si[j - 1][1] || 0, s3 = (sij0 - sij1) / 2;
@@ -4568,7 +4647,8 @@ function wiggle_default(series, order) {
       s1 += sij0, s2 += s3 * sij0;
     }
     s0[j - 1][1] += s0[j - 1][0] = y2;
-    if (s1) y2 -= s2 / s1;
+    if (s1)
+      y2 -= s2 / s1;
   }
   s0[j - 1][1] += s0[j - 1][0] = y2;
   none_default(series, order);
@@ -4696,7 +4776,8 @@ function _extends3() {
   return _extends3 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends3.apply(null, arguments);
@@ -4730,31 +4811,38 @@ function _toPropertyKey(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties3(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose3(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose3(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var symbolFactories = {
@@ -4874,7 +4962,8 @@ var adaptEventsOfChild = (props, data, index2) => {
   Object.keys(props).forEach((key) => {
     var item = props[key];
     if (isEventKey(key) && typeof item === "function") {
-      if (!out) out = {};
+      if (!out)
+        out = {};
       out[key] = getEventHandlerOfChild(item, data, index2);
     }
   });
@@ -4914,11 +5003,13 @@ function _toPropertyKey2(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive2(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -4941,7 +5032,8 @@ function _extends4() {
   return _extends4 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends4.apply(null, arguments);
@@ -4975,11 +5067,13 @@ function _toPropertyKey3(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive3(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -5304,6 +5398,7 @@ function weakMapMemoize(func, options3 = {}) {
   let lastResult2;
   let resultsCount = 0;
   function memoized() {
+    var _a;
     let cacheNode = fnNode;
     const { length } = arguments;
     for (let i = 0, l = length; i < l; i++) {
@@ -5342,7 +5437,7 @@ function weakMapMemoize(func, options3 = {}) {
       result = func.apply(null, arguments);
       resultsCount++;
       if (resultEqualityCheck) {
-        const lastResultValue = lastResult2?.deref?.() ?? lastResult2;
+        const lastResultValue = ((_a = lastResult2 == null ? void 0 : lastResult2.deref) == null ? void 0 : _a.call(lastResult2)) ?? lastResult2;
         if (lastResultValue != null && resultEqualityCheck(lastResultValue, result)) {
           result = lastResultValue;
           resultsCount !== 0 && resultsCount--;
@@ -5935,9 +6030,10 @@ var WRITABLE = "writable";
 var VALUE = "value";
 var isDraft = (value) => !!value && !!value[DRAFT_STATE];
 function isDraftable(value) {
+  var _a;
   if (!value)
     return false;
-  return isPlainObject2(value) || isArray(value) || !!value[DRAFTABLE] || !!value[CONSTRUCTOR]?.[DRAFTABLE] || isMap(value) || isSet(value);
+  return isPlainObject2(value) || isArray(value) || !!value[DRAFTABLE] || !!((_a = value[CONSTRUCTOR]) == null ? void 0 : _a[DRAFTABLE]) || isMap(value) || isSet(value);
 }
 var objectCtorString = O[PROTOTYPE][CONSTRUCTOR].toString();
 var cachedCtorStrings = /* @__PURE__ */ new WeakMap();
@@ -6219,18 +6315,20 @@ function updateDraftInParent(parent, draftValue, finalizedValue, originalKey) {
 }
 function registerChildFinalizationCallback(parent, child, key) {
   parent.callbacks_.push(function childCleanup(rootScope) {
+    var _a;
     const state = child;
     if (!state || !isSameScope(state, rootScope)) {
       return;
     }
-    rootScope.mapSetPlugin_?.fixSetContents(state);
+    (_a = rootScope.mapSetPlugin_) == null ? void 0 : _a.fixSetContents(state);
     const finalizedValue = getFinalValue(state);
     updateDraftInParent(parent, state.draft_ ?? state, finalizedValue, key);
     generatePatchesAndFinalize(state, rootScope);
   });
 }
 function generatePatchesAndFinalize(state, rootScope) {
-  const shouldFinalize = state.modified_ && !state.finalized_ && (state.type_ === 3 || (state.assigned_?.size ?? 0) > 0);
+  var _a;
+  const shouldFinalize = state.modified_ && !state.finalized_ && (state.type_ === 3 || (((_a = state.assigned_) == null ? void 0 : _a.size) ?? 0) > 0);
   if (shouldFinalize) {
     const { patchPlugin_ } = rootScope;
     if (patchPlugin_) {
@@ -6357,13 +6455,13 @@ var objectTraps = {
   },
   set(state, prop, value) {
     const desc = getDescriptorFromProto(latest(state), prop);
-    if (desc?.set) {
+    if (desc == null ? void 0 : desc.set) {
       desc.set.call(state.draft_, value);
       return true;
     }
     if (!state.modified_) {
       const current22 = peek(latest(state), prop);
-      const currentState = current22?.[DRAFT_STATE];
+      const currentState = current22 == null ? void 0 : current22[DRAFT_STATE];
       if (currentState && currentState.base_ === value) {
         state.copy_[prop] = value;
         state.assigned_.set(prop, false);
@@ -6444,11 +6542,12 @@ function peek(draft, prop) {
   return source[prop];
 }
 function readPropFromProto(state, source, prop) {
+  var _a;
   const desc = getDescriptorFromProto(source, prop);
   return desc ? VALUE in desc ? desc[VALUE] : (
     // This is a very special case, if the prop is a getter defined by the
     // prototype, we should invoke it with the draft as context!
-    desc.get?.call(state.draft_)
+    (_a = desc.get) == null ? void 0 : _a.call(state.draft_)
   ) : void 0;
 }
 function getDescriptorFromProto(source, prop) {
@@ -6546,11 +6645,11 @@ var Immer2 = class {
       });
       return [result, patches, inversePatches];
     };
-    if (isBoolean(config2?.autoFreeze))
+    if (isBoolean(config2 == null ? void 0 : config2.autoFreeze))
       this.setAutoFreeze(config2.autoFreeze);
-    if (isBoolean(config2?.useStrictShallowCopy))
+    if (isBoolean(config2 == null ? void 0 : config2.useStrictShallowCopy))
       this.setUseStrictShallowCopy(config2.useStrictShallowCopy);
-    if (isBoolean(config2?.useStrictIteration))
+    if (isBoolean(config2 == null ? void 0 : config2.useStrictIteration))
       this.setUseStrictIteration(config2.useStrictIteration);
   }
   createDraft(base) {
@@ -6624,15 +6723,16 @@ var Immer2 = class {
 };
 function createProxy(rootScope, value, parent, key) {
   const [draft, state] = isMap(value) ? getPlugin(PluginMapSet).proxyMap_(value, parent) : isSet(value) ? getPlugin(PluginMapSet).proxySet_(value, parent) : createProxyProxy(value, parent);
-  const scope = parent?.scope_ ?? getCurrentScope();
+  const scope = (parent == null ? void 0 : parent.scope_) ?? getCurrentScope();
   scope.drafts_.push(draft);
-  state.callbacks_ = parent?.callbacks_ ?? [];
+  state.callbacks_ = (parent == null ? void 0 : parent.callbacks_) ?? [];
   state.key_ = key;
   if (parent && key !== void 0) {
     registerChildFinalizationCallback(parent, state, key);
   } else {
     state.callbacks_.push(function rootDraftCleanup(rootScope2) {
-      rootScope2.mapSetPlugin_?.fixSetContents(state);
+      var _a;
+      (_a = rootScope2.mapSetPlugin_) == null ? void 0 : _a.fixSetContents(state);
       const { patchPlugin_ } = rootScope2;
       if (state.modified_ && patchPlugin_) {
         patchPlugin_.generatePatches_(state, [], rootScope2);
@@ -6717,8 +6817,10 @@ var createDraftSafeSelectorCreator = (...args) => {
 };
 var createDraftSafeSelector = createDraftSafeSelectorCreator(weakMapMemoize);
 var composeWithDevTools = typeof window !== "undefined" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : function() {
-  if (arguments.length === 0) return void 0;
-  if (typeof arguments[0] === "object") return compose;
+  if (arguments.length === 0)
+    return void 0;
+  if (typeof arguments[0] === "object")
+    return compose;
   return compose.apply(null, arguments);
 };
 var devToolsEnhancer = typeof window !== "undefined" && window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__ : function() {
@@ -6825,7 +6927,8 @@ function freezeDraftable(val) {
   }) : val;
 }
 function getOrInsertComputed(map5, key, compute) {
-  if (map5.has(key)) return map5.get(key);
+  if (map5.has(key))
+    return map5.get(key);
   return map5.set(key, compute(key)).get(key);
 }
 function isImmutableDefault(value) {
@@ -6917,17 +7020,21 @@ function createImmutableStateInvariantMiddleware(options3 = {}) {
       return JSON.stringify(obj, getSerialize2(serializer, decycler), indent);
     }, getSerialize2 = function(serializer, decycler) {
       let stack = [], keys = [];
-      if (!decycler) decycler = function(_, value) {
-        if (stack[0] === value) return "[Circular ~]";
-        return "[Circular ~." + keys.slice(0, stack.indexOf(value)).join(".") + "]";
-      };
+      if (!decycler)
+        decycler = function(_, value) {
+          if (stack[0] === value)
+            return "[Circular ~]";
+          return "[Circular ~." + keys.slice(0, stack.indexOf(value)).join(".") + "]";
+        };
       return function(key, value) {
         if (stack.length > 0) {
           var thisPos = stack.indexOf(this);
           ~thisPos ? stack.splice(thisPos + 1) : stack.push(this);
           ~thisPos ? keys.splice(thisPos, Infinity, key) : keys.push(key);
-          if (~stack.indexOf(value)) value = decycler.call(this, key, value);
-        } else stack.push(value);
+          if (~stack.indexOf(value))
+            value = decycler.call(this, key, value);
+        } else
+          stack.push(value);
         return serializer == null ? value : serializer.call(this, key, value);
       };
     };
@@ -6984,7 +7091,8 @@ function findNonSerializableValue(value, path2 = "", isSerializable = isPlain, g
   if (typeof value !== "object" || value === null) {
     return false;
   }
-  if (cache?.has(value)) return false;
+  if (cache == null ? void 0 : cache.has(value))
+    return false;
   const entries = getEntries != null ? getEntries(value) : Object.entries(value);
   const hasIgnoredPaths = ignoredPaths.length > 0;
   for (const [key, nestedValue] of entries) {
@@ -7013,14 +7121,18 @@ function findNonSerializableValue(value, path2 = "", isSerializable = isPlain, g
       }
     }
   }
-  if (cache && isNestedFrozen(value)) cache.add(value);
+  if (cache && isNestedFrozen(value))
+    cache.add(value);
   return false;
 }
 function isNestedFrozen(value) {
-  if (!Object.isFrozen(value)) return false;
+  if (!Object.isFrozen(value))
+    return false;
   for (const nestedValue of Object.values(value)) {
-    if (typeof nestedValue !== "object" || nestedValue === null) continue;
-    if (!isNestedFrozen(nestedValue)) return false;
+    if (typeof nestedValue !== "object" || nestedValue === null)
+      continue;
+    if (!isNestedFrozen(nestedValue))
+      return false;
   }
   return true;
 }
@@ -7167,8 +7279,9 @@ var autoBatchEnhancer = (options3 = {
     // Override the base `store.dispatch` method so that we can check actions
     // for the `shouldAutoBatch` flag and determine if batching is active
     dispatch(action) {
+      var _a;
       try {
-        notifying = !action?.meta?.[SHOULD_AUTOBATCH];
+        notifying = !((_a = action == null ? void 0 : action.meta) == null ? void 0 : _a[SHOULD_AUTOBATCH]);
         shouldNotifyAtEndOfTick = !notifying;
         if (shouldNotifyAtEndOfTick) {
           if (!notificationQueued) {
@@ -7291,13 +7404,17 @@ function executeReducerBuilderCallback(builderCallback) {
           throw new Error(false ? formatProdErrorMessage(43) : "`builder.addAsyncThunk` should only be called before calling `builder.addDefaultCase`");
         }
       }
-      if (reducers.pending) actionsMap[asyncThunk.pending.type] = reducers.pending;
-      if (reducers.rejected) actionsMap[asyncThunk.rejected.type] = reducers.rejected;
-      if (reducers.fulfilled) actionsMap[asyncThunk.fulfilled.type] = reducers.fulfilled;
-      if (reducers.settled) actionMatchers.push({
-        matcher: asyncThunk.settled,
-        reducer: reducers.settled
-      });
+      if (reducers.pending)
+        actionsMap[asyncThunk.pending.type] = reducers.pending;
+      if (reducers.rejected)
+        actionsMap[asyncThunk.rejected.type] = reducers.rejected;
+      if (reducers.fulfilled)
+        actionsMap[asyncThunk.fulfilled.type] = reducers.fulfilled;
+      if (reducers.settled)
+        actionMatchers.push({
+          matcher: asyncThunk.settled,
+          reducer: reducers.settled
+        });
       return builder;
     },
     addMatcher(matcher, reducer) {
@@ -7405,25 +7522,25 @@ var nanoid = (size = 21) => {
 var commonProperties = ["name", "message", "stack", "code"];
 var RejectWithValue = class {
   constructor(payload, meta) {
+    /*
+    type-only property to distinguish between RejectWithValue and FulfillWithMeta
+    does not exist at runtime
+    */
+    __publicField(this, "_type");
     this.payload = payload;
     this.meta = meta;
   }
-  /*
-  type-only property to distinguish between RejectWithValue and FulfillWithMeta
-  does not exist at runtime
-  */
-  _type;
 };
 var FulfillWithMeta = class {
   constructor(payload, meta) {
+    /*
+    type-only property to distinguish between RejectWithValue and FulfillWithMeta
+    does not exist at runtime
+    */
+    __publicField(this, "_type");
     this.payload = payload;
     this.meta = meta;
   }
-  /*
-  type-only property to distinguish between RejectWithValue and FulfillWithMeta
-  does not exist at runtime
-  */
-  _type;
 };
 var miniSerializeError = (value) => {
   if (typeof value === "object" && value !== null) {
@@ -7469,15 +7586,15 @@ var createAsyncThunk = (() => {
         requestId,
         rejectedWithValue: !!payload,
         requestStatus: "rejected",
-        aborted: error?.name === "AbortError",
-        condition: error?.name === "ConditionError"
+        aborted: (error == null ? void 0 : error.name) === "AbortError",
+        condition: (error == null ? void 0 : error.name) === "ConditionError"
       }
     }));
     function actionCreator(arg, {
       signal
     } = {}) {
       return (dispatch, getState, extra) => {
-        const requestId = options3?.idGenerator ? options3.idGenerator(arg) : nanoid();
+        const requestId = (options3 == null ? void 0 : options3.idGenerator) ? options3.idGenerator(arg) : nanoid();
         const abortController = new AbortController();
         let abortHandler;
         let abortReason;
@@ -7494,10 +7611,11 @@ var createAsyncThunk = (() => {
             });
           }
         }
-        const promise = (async function() {
+        const promise = async function() {
+          var _a, _b;
           let finalAction;
           try {
-            let conditionResult = options3?.condition?.(arg, {
+            let conditionResult = (_a = options3 == null ? void 0 : options3.condition) == null ? void 0 : _a.call(options3, arg, {
               getState,
               extra
             });
@@ -7519,7 +7637,7 @@ var createAsyncThunk = (() => {
               };
               abortController.signal.addEventListener("abort", abortHandler);
             });
-            dispatch(pending(requestId, arg, options3?.getPendingMeta?.({
+            dispatch(pending(requestId, arg, (_b = options3 == null ? void 0 : options3.getPendingMeta) == null ? void 0 : _b.call(options3, {
               requestId,
               arg
             }, {
@@ -7560,7 +7678,7 @@ var createAsyncThunk = (() => {
             dispatch(finalAction);
           }
           return finalAction;
-        })();
+        }();
         return Object.assign(promise, {
           abort,
           requestId,
@@ -7610,7 +7728,8 @@ function getType(slice3, actionKey) {
 function buildCreateSlice({
   creators
 } = {}) {
-  const cAT = creators?.asyncThunk?.[asyncThunkSymbol];
+  var _a;
+  const cAT = (_a = creators == null ? void 0 : creators.asyncThunk) == null ? void 0 : _a[asyncThunkSymbol];
   return function createSlice2(options3) {
     const {
       name,
@@ -7704,11 +7823,13 @@ function buildCreateSlice({
     const injectedStateCache = /* @__PURE__ */ new WeakMap();
     let _reducer;
     function reducer(state, action) {
-      if (!_reducer) _reducer = buildReducer();
+      if (!_reducer)
+        _reducer = buildReducer();
       return _reducer(state, action);
     }
     function getInitialState() {
-      if (!_reducer) _reducer = buildReducer();
+      if (!_reducer)
+        _reducer = buildReducer();
       return _reducer.getInitialState();
     }
     function makeSelectorProps(reducerPath2, injected = false) {
@@ -7887,11 +8008,11 @@ var listenerCancelled = `${listener}-${cancelled}`;
 var listenerCompleted = `${listener}-${completed}`;
 var TaskAbortError = class {
   constructor(code) {
+    __publicField(this, "name", "TaskAbortError");
+    __publicField(this, "message");
     this.code = code;
     this.message = `${task} ${cancelled} (reason: ${code})`;
   }
-  name = "TaskAbortError";
-  message;
 };
 var assertFunction = (func, expected) => {
   if (typeof func !== "function") {
@@ -7962,7 +8083,7 @@ var runTask = async (task2, cleanUp) => {
       error
     };
   } finally {
-    cleanUp?.();
+    cleanUp == null ? void 0 : cleanUp();
   }
 };
 var createPause = (signal) => {
@@ -8001,7 +8122,7 @@ var createFork = (parentAbortSignal, parentBlockingPromises) => {
       validateActive(childAbortController.signal);
       return result2;
     }, () => abortControllerWithReason(childAbortController, taskCompleted));
-    if (opts?.autoJoin) {
+    if (opts == null ? void 0 : opts.autoJoin) {
       parentBlockingPromises.push(result.catch(noop22));
     }
     return {
@@ -8158,7 +8279,7 @@ var createListenerMiddleware = (middlewareOptions = {}) => {
     listenerMap.set(entry.id, entry);
     return (cancelOptions) => {
       entry.unsubscribe();
-      if (cancelOptions?.cancelActive) {
+      if (cancelOptions == null ? void 0 : cancelOptions.cancelActive) {
         cancelActiveListeners(entry);
       }
     };
@@ -8383,11 +8504,13 @@ function _toPropertyKey4(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive4(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -8799,11 +8922,13 @@ function _toPropertyKey5(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive5(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -9024,7 +9149,8 @@ function _extends5() {
   return _extends5 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends5.apply(null, arguments);
@@ -9058,11 +9184,13 @@ function _toPropertyKey6(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive6(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -9387,9 +9515,10 @@ function isDraft2(value) {
   return !!value && !!value[DRAFT_STATE2];
 }
 function isDraftable2(value) {
+  var _a;
   if (!value)
     return false;
-  return isPlainObject3(value) || Array.isArray(value) || !!value[DRAFTABLE2] || !!value.constructor?.[DRAFTABLE2] || isMap2(value) || isSet2(value);
+  return isPlainObject3(value) || Array.isArray(value) || !!value[DRAFTABLE2] || !!((_a = value.constructor) == null ? void 0 : _a[DRAFTABLE2]) || isMap2(value) || isSet2(value);
 }
 var objectCtorString2 = Object.prototype.constructor.toString();
 var cachedCtorStrings2 = /* @__PURE__ */ new WeakMap();
@@ -9761,13 +9890,13 @@ var objectTraps2 = {
   },
   set(state, prop, value) {
     const desc = getDescriptorFromProto2(latest2(state), prop);
-    if (desc?.set) {
+    if (desc == null ? void 0 : desc.set) {
       desc.set.call(state.draft_, value);
       return true;
     }
     if (!state.modified_) {
       const current22 = peek2(latest2(state), prop);
-      const currentState = current22?.[DRAFT_STATE2];
+      const currentState = current22 == null ? void 0 : current22[DRAFT_STATE2];
       if (currentState && currentState.base_ === value) {
         state.copy_[prop] = value;
         state.assigned_[prop] = false;
@@ -9846,11 +9975,12 @@ function peek2(draft, prop) {
   return source[prop];
 }
 function readPropFromProto2(state, source, prop) {
+  var _a;
   const desc = getDescriptorFromProto2(source, prop);
   return desc ? `value` in desc ? desc.value : (
     // This is a very special case, if the prop is a getter defined by the
     // prototype, we should invoke it with the draft as context!
-    desc.get?.call(state.draft_)
+    (_a = desc.get) == null ? void 0 : _a.call(state.draft_)
   ) : void 0;
 }
 function getDescriptorFromProto2(source, prop) {
@@ -9944,11 +10074,11 @@ var Immer22 = class {
       });
       return [result, patches, inversePatches];
     };
-    if (typeof config2?.autoFreeze === "boolean")
+    if (typeof (config2 == null ? void 0 : config2.autoFreeze) === "boolean")
       this.setAutoFreeze(config2.autoFreeze);
-    if (typeof config2?.useStrictShallowCopy === "boolean")
+    if (typeof (config2 == null ? void 0 : config2.useStrictShallowCopy) === "boolean")
       this.setUseStrictShallowCopy(config2.useStrictShallowCopy);
-    if (typeof config2?.useStrictIteration === "boolean")
+    if (typeof (config2 == null ? void 0 : config2.useStrictIteration) === "boolean")
       this.setUseStrictIteration(config2.useStrictIteration);
   }
   createDraft(base) {
@@ -10150,7 +10280,8 @@ function _extends6() {
   return _extends6 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends6.apply(null, arguments);
@@ -10184,31 +10315,38 @@ function _toPropertyKey7(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive7(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties4(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose4(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose4(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function defaultUniqBy(entry) {
@@ -10367,7 +10505,8 @@ function _extends7() {
   return _extends7 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends7.apply(null, arguments);
@@ -10401,11 +10540,13 @@ function _toPropertyKey8(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive8(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -10669,11 +10810,13 @@ function _toPropertyKey9(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive9(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -10794,7 +10937,8 @@ function _extends8() {
   return _extends8 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends8.apply(null, arguments);
@@ -10828,11 +10972,13 @@ function _toPropertyKey10(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive10(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -10925,7 +11071,8 @@ function _extends9() {
   return _extends9 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends9.apply(null, arguments);
@@ -10959,31 +11106,38 @@ function _toPropertyKey11(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive11(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties5(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose5(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose5(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var getPath2 = (x2, y2, width, height, top, left) => {
@@ -11066,11 +11220,13 @@ function _toPropertyKey12(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive12(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -11112,11 +11268,13 @@ function _toPropertyKey13(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive13(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -11552,11 +11710,13 @@ function _toPropertyKey14(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive14(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -11565,27 +11725,33 @@ function _extends10() {
   return _extends10 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends10.apply(null, arguments);
 }
 function _objectWithoutProperties6(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose6(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose6(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var getRectanglePath = (x2, y2, width, height, radius) => {
@@ -11780,11 +11946,13 @@ function _toPropertyKey15(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive15(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -11957,7 +12125,8 @@ function _extends11() {
   return _extends11 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends11.apply(null, arguments);
@@ -12272,22 +12441,28 @@ function bisector(f) {
   }
   function left(a2, x2, lo = 0, hi = a2.length) {
     if (lo < hi) {
-      if (compare1(x2, x2) !== 0) return hi;
+      if (compare1(x2, x2) !== 0)
+        return hi;
       do {
         const mid = lo + hi >>> 1;
-        if (compare2(a2[mid], x2) < 0) lo = mid + 1;
-        else hi = mid;
+        if (compare2(a2[mid], x2) < 0)
+          lo = mid + 1;
+        else
+          hi = mid;
       } while (lo < hi);
     }
     return lo;
   }
   function right(a2, x2, lo = 0, hi = a2.length) {
     if (lo < hi) {
-      if (compare1(x2, x2) !== 0) return hi;
+      if (compare1(x2, x2) !== 0)
+        return hi;
       do {
         const mid = lo + hi >>> 1;
-        if (compare2(a2[mid], x2) <= 0) lo = mid + 1;
-        else hi = mid;
+        if (compare2(a2[mid], x2) <= 0)
+          lo = mid + 1;
+        else
+          hi = mid;
       } while (lo < hi);
     }
     return lo;
@@ -12335,12 +12510,17 @@ var blur2 = Blur2(blurf);
 var blurImage = Blur2(blurfImage);
 function Blur2(blur3) {
   return function(data, rx, ry = rx) {
-    if (!((rx = +rx) >= 0)) throw new RangeError("invalid rx");
-    if (!((ry = +ry) >= 0)) throw new RangeError("invalid ry");
+    if (!((rx = +rx) >= 0))
+      throw new RangeError("invalid rx");
+    if (!((ry = +ry) >= 0))
+      throw new RangeError("invalid ry");
     let { data: values, width, height } = data;
-    if (!((width = Math.floor(width)) >= 0)) throw new RangeError("invalid width");
-    if (!((height = Math.floor(height !== void 0 ? height : values.length / width)) >= 0)) throw new RangeError("invalid height");
-    if (!width || !height || !rx && !ry) return data;
+    if (!((width = Math.floor(width)) >= 0))
+      throw new RangeError("invalid width");
+    if (!((height = Math.floor(height !== void 0 ? height : values.length / width)) >= 0))
+      throw new RangeError("invalid height");
+    if (!width || !height || !rx && !ry)
+      return data;
     const blurx = rx && blur3(rx);
     const blury = ry && blur3(ry);
     const temp = values.slice();
@@ -12385,11 +12565,13 @@ function blurfImage(radius) {
 }
 function blurf(radius) {
   const radius0 = Math.floor(radius);
-  if (radius0 === radius) return bluri(radius);
+  if (radius0 === radius)
+    return bluri(radius);
   const t = radius - radius0;
   const w = 2 * radius + 1;
   return (T, S, start, stop, step) => {
-    if (!((stop -= step) >= start)) return;
+    if (!((stop -= step) >= start))
+      return;
     let sum3 = radius0 * S[start];
     const s0 = step * radius0;
     const s1 = s0 + step;
@@ -12406,7 +12588,8 @@ function blurf(radius) {
 function bluri(radius) {
   const w = 2 * radius + 1;
   return (T, S, start, stop, step) => {
-    if (!((stop -= step) >= start)) return;
+    if (!((stop -= step) >= start))
+      return;
     let sum3 = radius * S[start];
     const s2 = step * radius;
     for (let i = start, j = start + s2; i < j; i += step) {
@@ -12425,7 +12608,9 @@ var InternMap = class extends Map {
   constructor(entries, key = keyof) {
     super();
     Object.defineProperties(this, { _intern: { value: /* @__PURE__ */ new Map() }, _key: { value: key } });
-    if (entries != null) for (const [key2, value] of entries) this.set(key2, value);
+    if (entries != null)
+      for (const [key2, value] of entries)
+        this.set(key2, value);
   }
   get(key) {
     return super.get(intern_get(this, key));
@@ -12446,7 +12631,8 @@ function intern_get({ _intern, _key }, value) {
 }
 function intern_set({ _intern, _key }, value) {
   const key = _key(value);
-  if (_intern.has(key)) return _intern.get(key);
+  if (_intern.has(key))
+    return _intern.get(key);
   _intern.set(key, value);
   return value;
 }
@@ -12464,11 +12650,14 @@ function keyof(value) {
 
 // node_modules/d3-array/src/sort.js
 function compareDefined(compare = ascending) {
-  if (compare === ascending) return ascendingDefined;
-  if (typeof compare !== "function") throw new TypeError("compare is not a function");
+  if (compare === ascending)
+    return ascendingDefined;
+  if (typeof compare !== "function")
+    throw new TypeError("compare is not a function");
   return (a2, b) => {
     const x2 = compare(a2, b);
-    if (x2 || x2 === 0) return x2;
+    if (x2 || x2 === 0)
+      return x2;
     return (compare(b, b) === 0) - (compare(a2, a2) === 0);
   };
 }
@@ -12492,32 +12681,48 @@ function tickSpec(start, stop, count2) {
     inc = Math.pow(10, -power) / factor;
     i1 = Math.round(start * inc);
     i2 = Math.round(stop * inc);
-    if (i1 / inc < start) ++i1;
-    if (i2 / inc > stop) --i2;
+    if (i1 / inc < start)
+      ++i1;
+    if (i2 / inc > stop)
+      --i2;
     inc = -inc;
   } else {
     inc = Math.pow(10, power) * factor;
     i1 = Math.round(start / inc);
     i2 = Math.round(stop / inc);
-    if (i1 * inc < start) ++i1;
-    if (i2 * inc > stop) --i2;
+    if (i1 * inc < start)
+      ++i1;
+    if (i2 * inc > stop)
+      --i2;
   }
-  if (i2 < i1 && 0.5 <= count2 && count2 < 2) return tickSpec(start, stop, count2 * 2);
+  if (i2 < i1 && 0.5 <= count2 && count2 < 2)
+    return tickSpec(start, stop, count2 * 2);
   return [i1, i2, inc];
 }
 function ticks(start, stop, count2) {
   stop = +stop, start = +start, count2 = +count2;
-  if (!(count2 > 0)) return [];
-  if (start === stop) return [start];
+  if (!(count2 > 0))
+    return [];
+  if (start === stop)
+    return [start];
   const reverse3 = stop < start, [i1, i2, inc] = reverse3 ? tickSpec(stop, start, count2) : tickSpec(start, stop, count2);
-  if (!(i2 >= i1)) return [];
+  if (!(i2 >= i1))
+    return [];
   const n = i2 - i1 + 1, ticks2 = new Array(n);
   if (reverse3) {
-    if (inc < 0) for (let i = 0; i < n; ++i) ticks2[i] = (i2 - i) / -inc;
-    else for (let i = 0; i < n; ++i) ticks2[i] = (i2 - i) * inc;
+    if (inc < 0)
+      for (let i = 0; i < n; ++i)
+        ticks2[i] = (i2 - i) / -inc;
+    else
+      for (let i = 0; i < n; ++i)
+        ticks2[i] = (i2 - i) * inc;
   } else {
-    if (inc < 0) for (let i = 0; i < n; ++i) ticks2[i] = (i1 + i) / -inc;
-    else for (let i = 0; i < n; ++i) ticks2[i] = (i1 + i) * inc;
+    if (inc < 0)
+      for (let i = 0; i < n; ++i)
+        ticks2[i] = (i1 + i) / -inc;
+    else
+      for (let i = 0; i < n; ++i)
+        ticks2[i] = (i1 + i) * inc;
   }
   return ticks2;
 }
@@ -12576,7 +12781,8 @@ function quickselect(array2, k2, left = 0, right = Infinity, compare) {
   k2 = Math.floor(k2);
   left = Math.floor(Math.max(0, left));
   right = Math.floor(Math.min(array2.length - 1, right));
-  if (!(left <= k2 && k2 <= right)) return array2;
+  if (!(left <= k2 && k2 <= right))
+    return array2;
   compare = compare === void 0 ? ascendingDefined : compareDefined(compare);
   while (right > left) {
     if (right - left > 600) {
@@ -12593,16 +12799,23 @@ function quickselect(array2, k2, left = 0, right = Infinity, compare) {
     let i = left;
     let j = right;
     swap(array2, left, k2);
-    if (compare(array2[right], t) > 0) swap(array2, left, right);
+    if (compare(array2[right], t) > 0)
+      swap(array2, left, right);
     while (i < j) {
       swap(array2, i, j), ++i, --j;
-      while (compare(array2[i], t) < 0) ++i;
-      while (compare(array2[j], t) > 0) --j;
+      while (compare(array2[i], t) < 0)
+        ++i;
+      while (compare(array2[j], t) > 0)
+        --j;
     }
-    if (compare(array2[left], t) === 0) swap(array2, left, j);
-    else ++j, swap(array2, j, right);
-    if (j <= k2) left = j + 1;
-    if (k2 <= j) right = j - 1;
+    if (compare(array2[left], t) === 0)
+      swap(array2, left, j);
+    else
+      ++j, swap(array2, j, right);
+    if (j <= k2)
+      left = j + 1;
+    if (k2 <= j)
+      right = j - 1;
   }
   return array2;
 }
@@ -12615,16 +12828,22 @@ function swap(array2, i, j) {
 // node_modules/d3-array/src/quantile.js
 function quantile(values, p, valueof) {
   values = Float64Array.from(numbers(values, valueof));
-  if (!(n = values.length) || isNaN(p = +p)) return;
-  if (p <= 0 || n < 2) return min2(values);
-  if (p >= 1) return max2(values);
+  if (!(n = values.length) || isNaN(p = +p))
+    return;
+  if (p <= 0 || n < 2)
+    return min2(values);
+  if (p >= 1)
+    return max2(values);
   var n, i = (n - 1) * p, i0 = Math.floor(i), value0 = max2(quickselect(values, i0).subarray(0, i0 + 1)), value1 = min2(values.subarray(i0 + 1));
   return value0 + (value1 - value0) * (i - i0);
 }
 function quantileSorted(values, p, valueof = number) {
-  if (!(n = values.length) || isNaN(p = +p)) return;
-  if (p <= 0 || n < 2) return +valueof(values[0], 0, values);
-  if (p >= 1) return +valueof(values[n - 1], n - 1, values);
+  if (!(n = values.length) || isNaN(p = +p))
+    return;
+  if (p <= 0 || n < 2)
+    return +valueof(values[0], 0, values);
+  if (p >= 1)
+    return +valueof(values[n - 1], n - 1, values);
   var n, i = (n - 1) * p, i0 = Math.floor(i), value0 = +valueof(values[i0], i0, values), value1 = +valueof(values[i0 + 1], i0 + 1, values);
   return value0 + (value1 - value0) * (i - i0);
 }
@@ -12672,14 +12891,18 @@ function initInterpolator(domain, interpolator) {
     case 0:
       break;
     case 1: {
-      if (typeof domain === "function") this.interpolator(domain);
-      else this.range(domain);
+      if (typeof domain === "function")
+        this.interpolator(domain);
+      else
+        this.range(domain);
       break;
     }
     default: {
       this.domain(domain);
-      if (typeof interpolator === "function") this.interpolator(interpolator);
-      else this.range(interpolator);
+      if (typeof interpolator === "function")
+        this.interpolator(interpolator);
+      else
+        this.range(interpolator);
       break;
     }
   }
@@ -12693,16 +12916,19 @@ function ordinal() {
   function scale(d) {
     let i = index2.get(d);
     if (i === void 0) {
-      if (unknown !== implicit) return unknown;
+      if (unknown !== implicit)
+        return unknown;
       index2.set(d, i = domain.push(d) - 1);
     }
     return range5[i % range5.length];
   }
   scale.domain = function(_) {
-    if (!arguments.length) return domain.slice();
+    if (!arguments.length)
+      return domain.slice();
     domain = [], index2 = new InternMap();
     for (const value of _) {
-      if (index2.has(value)) continue;
+      if (index2.has(value))
+        continue;
       index2.set(value, domain.push(value) - 1);
     }
     return scale;
@@ -12727,10 +12953,12 @@ function band() {
   function rescale() {
     var n = domain().length, reverse3 = r1 < r0, start = reverse3 ? r1 : r0, stop = reverse3 ? r0 : r1;
     step = (stop - start) / Math.max(1, n - paddingInner + paddingOuter * 2);
-    if (round2) step = Math.floor(step);
+    if (round2)
+      step = Math.floor(step);
     start += (stop - start - step * (n - paddingInner)) * align;
     bandwidth = step * (1 - paddingInner);
-    if (round2) start = Math.round(start), bandwidth = Math.round(bandwidth);
+    if (round2)
+      start = Math.round(start), bandwidth = Math.round(bandwidth);
     var values = range(n).map(function(i) {
       return start + step * i;
     });
@@ -12792,7 +13020,8 @@ function define_default(constructor, factory, prototype) {
 }
 function extend(parent, definition) {
   var prototype = Object.create(parent.prototype);
-  for (var key in definition) prototype[key] = definition[key];
+  for (var key in definition)
+    prototype[key] = definition[key];
   return prototype;
 }
 
@@ -12997,12 +13226,15 @@ function rgbn(n) {
   return new Rgb(n >> 16 & 255, n >> 8 & 255, n & 255, 1);
 }
 function rgba(r, g, b, a2) {
-  if (a2 <= 0) r = g = b = NaN;
+  if (a2 <= 0)
+    r = g = b = NaN;
   return new Rgb(r, g, b, a2);
 }
 function rgbConvert(o) {
-  if (!(o instanceof Color)) o = color(o);
-  if (!o) return new Rgb();
+  if (!(o instanceof Color))
+    o = color(o);
+  if (!o)
+    return new Rgb();
   o = o.rgb();
   return new Rgb(o.r, o.g, o.b, o.opacity);
 }
@@ -13061,22 +13293,32 @@ function hex(value) {
   return (value < 16 ? "0" : "") + value.toString(16);
 }
 function hsla(h, s2, l, a2) {
-  if (a2 <= 0) h = s2 = l = NaN;
-  else if (l <= 0 || l >= 1) h = s2 = NaN;
-  else if (s2 <= 0) h = NaN;
+  if (a2 <= 0)
+    h = s2 = l = NaN;
+  else if (l <= 0 || l >= 1)
+    h = s2 = NaN;
+  else if (s2 <= 0)
+    h = NaN;
   return new Hsl(h, s2, l, a2);
 }
 function hslConvert(o) {
-  if (o instanceof Hsl) return new Hsl(o.h, o.s, o.l, o.opacity);
-  if (!(o instanceof Color)) o = color(o);
-  if (!o) return new Hsl();
-  if (o instanceof Hsl) return o;
+  if (o instanceof Hsl)
+    return new Hsl(o.h, o.s, o.l, o.opacity);
+  if (!(o instanceof Color))
+    o = color(o);
+  if (!o)
+    return new Hsl();
+  if (o instanceof Hsl)
+    return o;
   o = o.rgb();
   var r = o.r / 255, g = o.g / 255, b = o.b / 255, min3 = Math.min(r, g, b), max3 = Math.max(r, g, b), h = NaN, s2 = max3 - min3, l = (max3 + min3) / 2;
   if (s2) {
-    if (r === max3) h = (g - b) / s2 + (g < b) * 6;
-    else if (g === max3) h = (b - r) / s2 + 2;
-    else h = (r - g) / s2 + 4;
+    if (r === max3)
+      h = (g - b) / s2 + (g < b) * 6;
+    else if (g === max3)
+      h = (b - r) / s2 + 2;
+    else
+      h = (r - g) / s2 + 4;
     s2 /= l < 0.5 ? max3 + min3 : 2 - max3 - min3;
     h *= 60;
   } else {
@@ -13147,11 +13389,15 @@ var t1 = 6 / 29;
 var t2 = 3 * t1 * t1;
 var t3 = t1 * t1 * t1;
 function labConvert(o) {
-  if (o instanceof Lab) return new Lab(o.l, o.a, o.b, o.opacity);
-  if (o instanceof Hcl) return hcl2lab(o);
-  if (!(o instanceof Rgb)) o = rgbConvert(o);
+  if (o instanceof Lab)
+    return new Lab(o.l, o.a, o.b, o.opacity);
+  if (o instanceof Hcl)
+    return hcl2lab(o);
+  if (!(o instanceof Rgb))
+    o = rgbConvert(o);
   var r = rgb2lrgb(o.r), g = rgb2lrgb(o.g), b = rgb2lrgb(o.b), y2 = xyz2lab((0.2225045 * r + 0.7168786 * g + 0.0606169 * b) / Yn), x2, z;
-  if (r === g && g === b) x2 = z = y2;
+  if (r === g && g === b)
+    x2 = z = y2;
   else {
     x2 = xyz2lab((0.4360747 * r + 0.3850649 * g + 0.1430804 * b) / Xn);
     z = xyz2lab((0.0139322 * r + 0.0971045 * g + 0.7141733 * b) / Zn);
@@ -13200,9 +13446,12 @@ function rgb2lrgb(x2) {
   return (x2 /= 255) <= 0.04045 ? x2 / 12.92 : Math.pow((x2 + 0.055) / 1.055, 2.4);
 }
 function hclConvert(o) {
-  if (o instanceof Hcl) return new Hcl(o.h, o.c, o.l, o.opacity);
-  if (!(o instanceof Lab)) o = labConvert(o);
-  if (o.a === 0 && o.b === 0) return new Hcl(NaN, 0 < o.l && o.l < 100 ? 0 : NaN, o.l, o.opacity);
+  if (o instanceof Hcl)
+    return new Hcl(o.h, o.c, o.l, o.opacity);
+  if (!(o instanceof Lab))
+    o = labConvert(o);
+  if (o.a === 0 && o.b === 0)
+    return new Hcl(NaN, 0 < o.l && o.l < 100 ? 0 : NaN, o.l, o.opacity);
   var h = Math.atan2(o.b, o.a) * degrees;
   return new Hcl(h < 0 ? h + 360 : h, Math.sqrt(o.a * o.a + o.b * o.b), o.l, o.opacity);
 }
@@ -13216,7 +13465,8 @@ function Hcl(h, c2, l, opacity) {
   this.opacity = +opacity;
 }
 function hcl2lab(o) {
-  if (isNaN(o.h)) return new Lab(o.l, 0, 0, o.opacity);
+  if (isNaN(o.h))
+    return new Lab(o.l, 0, 0, o.opacity);
   var h = o.h * radians;
   return new Lab(o.l, Math.cos(h) * o.c, Math.sin(h) * o.c, o.opacity);
 }
@@ -13242,8 +13492,10 @@ var ED = E * D;
 var EB = E * B;
 var BC_DA = B * C - D * A;
 function cubehelixConvert(o) {
-  if (o instanceof Cubehelix) return new Cubehelix(o.h, o.s, o.l, o.opacity);
-  if (!(o instanceof Rgb)) o = rgbConvert(o);
+  if (o instanceof Cubehelix)
+    return new Cubehelix(o.h, o.s, o.l, o.opacity);
+  if (!(o instanceof Rgb))
+    o = rgbConvert(o);
   var r = o.r / 255, g = o.g / 255, b = o.b / 255, l = (BC_DA * b + ED * r - EB * g) / (BC_DA + ED - EB), bl = b - l, k2 = (E * (g - l) - C * bl) / D, s2 = Math.sqrt(k2 * k2 + bl * bl) / (E * l * (1 - l)), h = s2 ? Math.atan2(k2, bl) * degrees - 120 : NaN;
   return new Cubehelix(h < 0 ? h + 360 : h, s2, l, o.opacity);
 }
@@ -13327,7 +13579,7 @@ function nogamma(a2, b) {
 }
 
 // node_modules/d3-interpolate/src/rgb.js
-var rgb_default = (function rgbGamma(y2) {
+var rgb_default = function rgbGamma(y2) {
   var color2 = gamma(y2);
   function rgb2(start, end) {
     var r = color2((start = rgb(start)).r, (end = rgb(end)).r), g = color2(start.g, end.g), b = color2(start.b, end.b), opacity = nogamma(start.opacity, end.opacity);
@@ -13341,7 +13593,7 @@ var rgb_default = (function rgbGamma(y2) {
   }
   rgb2.gamma = rgbGamma;
   return rgb2;
-})(1);
+}(1);
 function rgbSpline(spline) {
   return function(colors) {
     var n = colors.length, r = new Array(n), g = new Array(n), b = new Array(n), i, color2;
@@ -13368,10 +13620,12 @@ var rgbBasisClosed = rgbSpline(basisClosed_default2);
 
 // node_modules/d3-interpolate/src/numberArray.js
 function numberArray_default(a2, b) {
-  if (!b) b = [];
+  if (!b)
+    b = [];
   var n = a2 ? Math.min(b.length, a2.length) : 0, c2 = b.slice(), i;
   return function(t) {
-    for (i = 0; i < n; ++i) c2[i] = a2[i] * (1 - t) + b[i] * t;
+    for (i = 0; i < n; ++i)
+      c2[i] = a2[i] * (1 - t) + b[i] * t;
     return c2;
   };
 }
@@ -13382,10 +13636,13 @@ function isNumberArray(x2) {
 // node_modules/d3-interpolate/src/array.js
 function genericArray(a2, b) {
   var nb = b ? b.length : 0, na = a2 ? Math.min(nb, a2.length) : 0, x2 = new Array(na), c2 = new Array(nb), i;
-  for (i = 0; i < na; ++i) x2[i] = value_default(a2[i], b[i]);
-  for (; i < nb; ++i) c2[i] = b[i];
+  for (i = 0; i < na; ++i)
+    x2[i] = value_default(a2[i], b[i]);
+  for (; i < nb; ++i)
+    c2[i] = b[i];
   return function(t) {
-    for (i = 0; i < na; ++i) c2[i] = x2[i](t);
+    for (i = 0; i < na; ++i)
+      c2[i] = x2[i](t);
     return c2;
   };
 }
@@ -13408,8 +13665,10 @@ function number_default(a2, b) {
 // node_modules/d3-interpolate/src/object.js
 function object_default(a2, b) {
   var i = {}, c2 = {}, k2;
-  if (a2 === null || typeof a2 !== "object") a2 = {};
-  if (b === null || typeof b !== "object") b = {};
+  if (a2 === null || typeof a2 !== "object")
+    a2 = {};
+  if (b === null || typeof b !== "object")
+    b = {};
   for (k2 in b) {
     if (k2 in a2) {
       i[k2] = value_default(a2[k2], b[k2]);
@@ -13418,7 +13677,8 @@ function object_default(a2, b) {
     }
   }
   return function(t) {
-    for (k2 in i) c2[k2] = i[k2](t);
+    for (k2 in i)
+      c2[k2] = i[k2](t);
     return c2;
   };
 }
@@ -13442,12 +13702,16 @@ function string_default(a2, b) {
   while ((am = reA.exec(a2)) && (bm = reB.exec(b))) {
     if ((bs = bm.index) > bi) {
       bs = b.slice(bi, bs);
-      if (s2[i]) s2[i] += bs;
-      else s2[++i] = bs;
+      if (s2[i])
+        s2[i] += bs;
+      else
+        s2[++i] = bs;
     }
     if ((am = am[0]) === (bm = bm[0])) {
-      if (s2[i]) s2[i] += bm;
-      else s2[++i] = bm;
+      if (s2[i])
+        s2[i] += bm;
+      else
+        s2[++i] = bm;
     } else {
       s2[++i] = null;
       q.push({ i, x: number_default(am, bm) });
@@ -13456,11 +13720,14 @@ function string_default(a2, b) {
   }
   if (bi < b.length) {
     bs = b.slice(bi);
-    if (s2[i]) s2[i] += bs;
-    else s2[++i] = bs;
+    if (s2[i])
+      s2[i] += bs;
+    else
+      s2[++i] = bs;
   }
   return s2.length < 2 ? q[0] ? one(q[0].x) : zero2(b) : (b = q.length, function(t) {
-    for (var i2 = 0, o; i2 < b; ++i2) s2[(o = q[i2]).i] = o.x(t);
+    for (var i2 = 0, o; i2 < b; ++i2)
+      s2[(o = q[i2]).i] = o.x(t);
     return s2.join("");
   });
 }
@@ -13490,10 +13757,14 @@ var identity2 = {
 };
 function decompose_default(a2, b, c2, d, e, f) {
   var scaleX, scaleY, skewX;
-  if (scaleX = Math.sqrt(a2 * a2 + b * b)) a2 /= scaleX, b /= scaleX;
-  if (skewX = a2 * c2 + b * d) c2 -= a2 * skewX, d -= b * skewX;
-  if (scaleY = Math.sqrt(c2 * c2 + d * d)) c2 /= scaleY, d /= scaleY, skewX /= scaleY;
-  if (a2 * d < b * c2) a2 = -a2, b = -b, skewX = -skewX, scaleX = -scaleX;
+  if (scaleX = Math.sqrt(a2 * a2 + b * b))
+    a2 /= scaleX, b /= scaleX;
+  if (skewX = a2 * c2 + b * d)
+    c2 -= a2 * skewX, d -= b * skewX;
+  if (scaleY = Math.sqrt(c2 * c2 + d * d))
+    c2 /= scaleY, d /= scaleY, skewX /= scaleY;
+  if (a2 * d < b * c2)
+    a2 = -a2, b = -b, skewX = -skewX, scaleX = -scaleX;
   return {
     translateX: e,
     translateY: f,
@@ -13511,10 +13782,13 @@ function parseCss(value) {
   return m.isIdentity ? identity2 : decompose_default(m.a, m.b, m.c, m.d, m.e, m.f);
 }
 function parseSvg(value) {
-  if (value == null) return identity2;
-  if (!svgNode) svgNode = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  if (value == null)
+    return identity2;
+  if (!svgNode)
+    svgNode = document.createElementNS("http://www.w3.org/2000/svg", "g");
   svgNode.setAttribute("transform", value);
-  if (!(value = svgNode.transform.baseVal.consolidate())) return identity2;
+  if (!(value = svgNode.transform.baseVal.consolidate()))
+    return identity2;
   value = value.matrix;
   return decompose_default(value.a, value.b, value.c, value.d, value.e, value.f);
 }
@@ -13534,8 +13808,10 @@ function interpolateTransform(parse, pxComma, pxParen, degParen) {
   }
   function rotate(a2, b, s2, q) {
     if (a2 !== b) {
-      if (a2 - b > 180) b += 360;
-      else if (b - a2 > 180) a2 += 360;
+      if (a2 - b > 180)
+        b += 360;
+      else if (b - a2 > 180)
+        a2 += 360;
       q.push({ i: s2.push(pop(s2) + "rotate(", null, degParen) - 2, x: number_default(a2, b) });
     } else if (b) {
       s2.push(pop(s2) + "rotate(" + b + degParen);
@@ -13566,7 +13842,8 @@ function interpolateTransform(parse, pxComma, pxParen, degParen) {
     a2 = b = null;
     return function(t) {
       var i = -1, n = q.length, o;
-      while (++i < n) s2[(o = q[i]).i] = o.x(t);
+      while (++i < n)
+        s2[(o = q[i]).i] = o.x(t);
       return s2.join("");
     };
   };
@@ -13585,7 +13862,7 @@ function sinh(x2) {
 function tanh(x2) {
   return ((x2 = Math.exp(2 * x2)) - 1) / (x2 + 1);
 }
-var zoom_default = (function zoomRho(rho, rho2, rho4) {
+var zoom_default = function zoomRho(rho, rho2, rho4) {
   function zoom(p0, p1) {
     var ux0 = p0[0], uy0 = p0[1], w0 = p0[2], ux1 = p1[0], uy1 = p1[1], w1 = p1[2], dx = ux1 - ux0, dy = uy1 - uy0, d2 = dx * dx + dy * dy, i, S;
     if (d2 < epsilon22) {
@@ -13617,7 +13894,7 @@ var zoom_default = (function zoomRho(rho, rho2, rho4) {
     return zoomRho(_1, _2, _4);
   };
   return zoom;
-})(Math.SQRT2, 2, 4);
+}(Math.SQRT2, 2, 4);
 
 // node_modules/d3-interpolate/src/hsl.js
 function hsl2(hue2) {
@@ -13653,7 +13930,7 @@ var hclLong = hcl2(nogamma);
 
 // node_modules/d3-interpolate/src/cubehelix.js
 function cubehelix2(hue2) {
-  return (function cubehelixGamma(y2) {
+  return function cubehelixGamma(y2) {
     y2 = +y2;
     function cubehelix3(start, end) {
       var h = hue2((start = cubehelix(start)).h, (end = cubehelix(end)).h), s2 = nogamma(start.s, end.s), l = nogamma(start.l, end.l), opacity = nogamma(start.opacity, end.opacity);
@@ -13667,16 +13944,18 @@ function cubehelix2(hue2) {
     }
     cubehelix3.gamma = cubehelixGamma;
     return cubehelix3;
-  })(1);
+  }(1);
 }
 var cubehelix_default = cubehelix2(hue);
 var cubehelixLong = cubehelix2(nogamma);
 
 // node_modules/d3-interpolate/src/piecewise.js
 function piecewise(interpolate2, values) {
-  if (values === void 0) values = interpolate2, interpolate2 = value_default;
+  if (values === void 0)
+    values = interpolate2, interpolate2 = value_default;
   var i = 0, n = values.length - 1, v = values[0], I = new Array(n < 0 ? 0 : n);
-  while (i < n) I[i] = interpolate2(v, v = values[++i]);
+  while (i < n)
+    I[i] = interpolate2(v, v = values[++i]);
   return function(t) {
     var i2 = Math.max(0, Math.min(n - 1, Math.floor(t *= n)));
     return I[i2](t - i2);
@@ -13707,15 +13986,18 @@ function normalize(a2, b) {
 }
 function clamper(a2, b) {
   var t;
-  if (a2 > b) t = a2, a2 = b, b = t;
+  if (a2 > b)
+    t = a2, a2 = b, b = t;
   return function(x2) {
     return Math.max(a2, Math.min(b, x2));
   };
 }
 function bimap(domain, range5, interpolate2) {
   var d0 = domain[0], d1 = domain[1], r0 = range5[0], r1 = range5[1];
-  if (d1 < d0) d0 = normalize(d1, d0), r0 = interpolate2(r1, r0);
-  else d0 = normalize(d0, d1), r0 = interpolate2(r0, r1);
+  if (d1 < d0)
+    d0 = normalize(d1, d0), r0 = interpolate2(r1, r0);
+  else
+    d0 = normalize(d0, d1), r0 = interpolate2(r0, r1);
   return function(x2) {
     return r0(d0(x2));
   };
@@ -13742,7 +14024,8 @@ function transformer() {
   var domain = unit, range5 = unit, interpolate2 = value_default, transform, untransform, unknown, clamp = identity3, piecewise2, output, input;
   function rescale() {
     var n = Math.min(domain.length, range5.length);
-    if (clamp !== identity3) clamp = clamper(domain[0], domain[n - 1]);
+    if (clamp !== identity3)
+      clamp = clamper(domain[0], domain[n - 1]);
     piecewise2 = n > 2 ? polymap : bimap;
     output = input = null;
     return scale;
@@ -13785,7 +14068,8 @@ function formatDecimal_default(x2) {
   return Math.abs(x2 = Math.round(x2)) >= 1e21 ? x2.toLocaleString("en").replace(/,/g, "") : x2.toString(10);
 }
 function formatDecimalParts(x2, p) {
-  if ((i = (x2 = p ? x2.toExponential(p - 1) : x2.toExponential()).indexOf("e")) < 0) return null;
+  if ((i = (x2 = p ? x2.toExponential(p - 1) : x2.toExponential()).indexOf("e")) < 0)
+    return null;
   var i, coefficient = x2.slice(0, i);
   return [
     coefficient.length > 1 ? coefficient[0] + coefficient.slice(2) : coefficient,
@@ -13803,9 +14087,11 @@ function formatGroup_default(grouping, thousands) {
   return function(value, width) {
     var i = value.length, t = [], j = 0, g = grouping[0], length = 0;
     while (i > 0 && g > 0) {
-      if (length + g + 1 > width) g = Math.max(1, width - length);
+      if (length + g + 1 > width)
+        g = Math.max(1, width - length);
       t.push(value.substring(i -= g, i + g));
-      if ((length += g + 1) > width) break;
+      if ((length += g + 1) > width)
+        break;
       g = grouping[j = (j + 1) % grouping.length];
     }
     return t.reverse().join(thousands);
@@ -13824,7 +14110,8 @@ function formatNumerals_default(numerals) {
 // node_modules/d3-format/src/formatSpecifier.js
 var re = /^(?:(.)?([<>=^]))?([+\-( ])?([$#])?(0)?(\d+)?(,)?(\.\d+)?(~)?([a-z%])?$/i;
 function formatSpecifier(specifier) {
-  if (!(match = re.exec(specifier))) throw new Error("invalid format: " + specifier);
+  if (!(match = re.exec(specifier)))
+    throw new Error("invalid format: " + specifier);
   var match;
   return new FormatSpecifier({
     fill: match[1],
@@ -13858,21 +14145,25 @@ FormatSpecifier.prototype.toString = function() {
 
 // node_modules/d3-format/src/formatTrim.js
 function formatTrim_default(s2) {
-  out: for (var n = s2.length, i = 1, i0 = -1, i1; i < n; ++i) {
-    switch (s2[i]) {
-      case ".":
-        i0 = i1 = i;
-        break;
-      case "0":
-        if (i0 === 0) i0 = i;
-        i1 = i;
-        break;
-      default:
-        if (!+s2[i]) break out;
-        if (i0 > 0) i0 = 0;
-        break;
+  out:
+    for (var n = s2.length, i = 1, i0 = -1, i1; i < n; ++i) {
+      switch (s2[i]) {
+        case ".":
+          i0 = i1 = i;
+          break;
+        case "0":
+          if (i0 === 0)
+            i0 = i;
+          i1 = i;
+          break;
+        default:
+          if (!+s2[i])
+            break out;
+          if (i0 > 0)
+            i0 = 0;
+          break;
+      }
     }
-  }
   return i0 > 0 ? s2.slice(0, i0) + s2.slice(i1 + 1) : s2;
 }
 
@@ -13880,7 +14171,8 @@ function formatTrim_default(s2) {
 var prefixExponent;
 function formatPrefixAuto_default(x2, p) {
   var d = formatDecimalParts(x2, p);
-  if (!d) return x2 + "";
+  if (!d)
+    return x2 + "";
   var coefficient = d[0], exponent = d[1], i = exponent - (prefixExponent = Math.max(-8, Math.min(8, Math.floor(exponent / 3))) * 3) + 1, n = coefficient.length;
   return i === n ? coefficient : i > n ? coefficient + new Array(i - n + 1).join("0") : i > 0 ? coefficient.slice(0, i) + "." + coefficient.slice(i) : "0." + new Array(1 - i).join("0") + formatDecimalParts(x2, Math.max(0, p + i - 1))[0];
 }
@@ -13888,7 +14180,8 @@ function formatPrefixAuto_default(x2, p) {
 // node_modules/d3-format/src/formatRounded.js
 function formatRounded_default(x2, p) {
   var d = formatDecimalParts(x2, p);
-  if (!d) return x2 + "";
+  if (!d)
+    return x2 + "";
   var coefficient = d[0], exponent = d[1];
   return exponent < 0 ? "0." + new Array(-exponent).join("0") + coefficient : coefficient.length > exponent + 1 ? coefficient.slice(0, exponent + 1) + "." + coefficient.slice(exponent + 1) : coefficient + new Array(exponent - coefficient.length + 2).join("0");
 }
@@ -13923,9 +14216,12 @@ function locale_default(locale3) {
   function newFormat(specifier) {
     specifier = formatSpecifier(specifier);
     var fill = specifier.fill, align = specifier.align, sign2 = specifier.sign, symbol = specifier.symbol, zero3 = specifier.zero, width = specifier.width, comma = specifier.comma, precision = specifier.precision, trim = specifier.trim, type = specifier.type;
-    if (type === "n") comma = true, type = "g";
-    else if (!formatTypes_default[type]) precision === void 0 && (precision = 12), trim = true, type = "g";
-    if (zero3 || fill === "0" && align === "=") zero3 = true, fill = "0", align = "=";
+    if (type === "n")
+      comma = true, type = "g";
+    else if (!formatTypes_default[type])
+      precision === void 0 && (precision = 12), trim = true, type = "g";
+    if (zero3 || fill === "0" && align === "=")
+      zero3 = true, fill = "0", align = "=";
     var prefix2 = symbol === "$" ? currencyPrefix : symbol === "#" && /[boxX]/.test(type) ? "0" + type.toLowerCase() : "", suffix2 = symbol === "$" ? currencySuffix : /[%p]/.test(type) ? percent : "";
     var formatType = formatTypes_default[type], maybeSuffix = /[defgprs%]/.test(type);
     precision = precision === void 0 ? 6 : /[gprs]/.test(type) ? Math.max(1, Math.min(21, precision)) : Math.max(0, Math.min(20, precision));
@@ -13938,8 +14234,10 @@ function locale_default(locale3) {
         value = +value;
         var valueNegative = value < 0 || 1 / value < 0;
         value = isNaN(value) ? nan : formatType(Math.abs(value), precision);
-        if (trim) value = formatTrim_default(value);
-        if (valueNegative && +value === 0 && sign2 !== "+") valueNegative = false;
+        if (trim)
+          value = formatTrim_default(value);
+        if (valueNegative && +value === 0 && sign2 !== "+")
+          valueNegative = false;
         valuePrefix = (valueNegative ? sign2 === "(" ? sign2 : minus : sign2 === "-" || sign2 === "(" ? "" : sign2) + valuePrefix;
         valueSuffix = (type === "s" ? prefixes[8 + prefixExponent / 3] : "") + valueSuffix + (valueNegative && sign2 === "(" ? ")" : "");
         if (maybeSuffix) {
@@ -13953,9 +14251,11 @@ function locale_default(locale3) {
           }
         }
       }
-      if (comma && !zero3) value = group2(value, Infinity);
+      if (comma && !zero3)
+        value = group2(value, Infinity);
       var length = valuePrefix.length + value.length + valueSuffix.length, padding = length < width ? new Array(width - length + 1).join(fill) : "";
-      if (comma && zero3) value = group2(padding + value, padding.length ? width - valueSuffix.length : Infinity), padding = "";
+      if (comma && zero3)
+        value = group2(padding + value, padding.length ? width - valueSuffix.length : Infinity), padding = "";
       switch (align) {
         case "<":
           value = valuePrefix + value + valueSuffix + padding;
@@ -14028,7 +14328,8 @@ function tickFormat(start, stop, count2, specifier) {
   switch (specifier.type) {
     case "s": {
       var value = Math.max(Math.abs(start), Math.abs(stop));
-      if (specifier.precision == null && !isNaN(precision = precisionPrefix_default(step, value))) specifier.precision = precision;
+      if (specifier.precision == null && !isNaN(precision = precisionPrefix_default(step, value)))
+        specifier.precision = precision;
       return formatPrefix(specifier, value);
     }
     case "":
@@ -14036,12 +14337,14 @@ function tickFormat(start, stop, count2, specifier) {
     case "g":
     case "p":
     case "r": {
-      if (specifier.precision == null && !isNaN(precision = precisionRound_default(step, Math.max(Math.abs(start), Math.abs(stop))))) specifier.precision = precision - (specifier.type === "e");
+      if (specifier.precision == null && !isNaN(precision = precisionRound_default(step, Math.max(Math.abs(start), Math.abs(stop)))))
+        specifier.precision = precision - (specifier.type === "e");
       break;
     }
     case "f":
     case "%": {
-      if (specifier.precision == null && !isNaN(precision = precisionFixed_default(step))) specifier.precision = precision - (specifier.type === "%") * 2;
+      if (specifier.precision == null && !isNaN(precision = precisionFixed_default(step)))
+        specifier.precision = precision - (specifier.type === "%") * 2;
       break;
     }
   }
@@ -14060,7 +14363,8 @@ function linearish(scale) {
     return tickFormat(d[0], d[d.length - 1], count2 == null ? 10 : count2, specifier);
   };
   scale.nice = function(count2) {
-    if (count2 == null) count2 = 10;
+    if (count2 == null)
+      count2 = 10;
     var d = domain();
     var i0 = 0;
     var i1 = d.length - 1;
@@ -14188,7 +14492,8 @@ function loggish(transform) {
     let u = d[0];
     let v = d[d.length - 1];
     const r = v < u;
-    if (r) [u, v] = [v, u];
+    if (r)
+      [u, v] = [v, u];
     let i = logs(u);
     let j = logs(v);
     let k2;
@@ -14197,40 +14502,52 @@ function loggish(transform) {
     let z = [];
     if (!(base % 1) && j - i < n) {
       i = Math.floor(i), j = Math.ceil(j);
-      if (u > 0) for (; i <= j; ++i) {
-        for (k2 = 1; k2 < base; ++k2) {
-          t = i < 0 ? k2 / pows(-i) : k2 * pows(i);
-          if (t < u) continue;
-          if (t > v) break;
-          z.push(t);
+      if (u > 0)
+        for (; i <= j; ++i) {
+          for (k2 = 1; k2 < base; ++k2) {
+            t = i < 0 ? k2 / pows(-i) : k2 * pows(i);
+            if (t < u)
+              continue;
+            if (t > v)
+              break;
+            z.push(t);
+          }
         }
-      }
-      else for (; i <= j; ++i) {
-        for (k2 = base - 1; k2 >= 1; --k2) {
-          t = i > 0 ? k2 / pows(-i) : k2 * pows(i);
-          if (t < u) continue;
-          if (t > v) break;
-          z.push(t);
+      else
+        for (; i <= j; ++i) {
+          for (k2 = base - 1; k2 >= 1; --k2) {
+            t = i > 0 ? k2 / pows(-i) : k2 * pows(i);
+            if (t < u)
+              continue;
+            if (t > v)
+              break;
+            z.push(t);
+          }
         }
-      }
-      if (z.length * 2 < n) z = ticks(u, v, n);
+      if (z.length * 2 < n)
+        z = ticks(u, v, n);
     } else {
       z = ticks(i, j, Math.min(j - i, n)).map(pows);
     }
     return r ? z.reverse() : z;
   };
   scale.tickFormat = (count2, specifier) => {
-    if (count2 == null) count2 = 10;
-    if (specifier == null) specifier = base === 10 ? "s" : ",";
+    if (count2 == null)
+      count2 = 10;
+    if (specifier == null)
+      specifier = base === 10 ? "s" : ",";
     if (typeof specifier !== "function") {
-      if (!(base % 1) && (specifier = formatSpecifier(specifier)).precision == null) specifier.trim = true;
+      if (!(base % 1) && (specifier = formatSpecifier(specifier)).precision == null)
+        specifier.trim = true;
       specifier = format(specifier);
     }
-    if (count2 === Infinity) return specifier;
+    if (count2 === Infinity)
+      return specifier;
     const k2 = Math.max(1, base * count2 / scale.ticks().length);
     return (d) => {
       let i = d / pows(Math.round(logs(d)));
-      if (i * base < base - 0.5) i *= base;
+      if (i * base < base - 0.5)
+        i *= base;
       return i <= k2 ? specifier(d) : "";
     };
   };
@@ -14356,7 +14673,8 @@ function quantile2() {
   function rescale() {
     var i = 0, n = Math.max(1, range5.length);
     thresholds = new Array(n - 1);
-    while (++i < n) thresholds[i - 1] = quantileSorted(domain, i / n);
+    while (++i < n)
+      thresholds[i - 1] = quantileSorted(domain, i / n);
     return scale;
   }
   function scale(x2) {
@@ -14370,9 +14688,12 @@ function quantile2() {
     ];
   };
   scale.domain = function(_) {
-    if (!arguments.length) return domain.slice();
+    if (!arguments.length)
+      return domain.slice();
     domain = [];
-    for (let d of _) if (d != null && !isNaN(d = +d)) domain.push(d);
+    for (let d of _)
+      if (d != null && !isNaN(d = +d))
+        domain.push(d);
     domain.sort(ascending);
     return rescale();
   };
@@ -14400,7 +14721,8 @@ function quantize() {
   function rescale() {
     var i = -1;
     domain = new Array(n);
-    while (++i < n) domain[i] = ((i + 1) * x1 - (i - n) * x0) / (n + 1);
+    while (++i < n)
+      domain[i] = ((i + 1) * x1 - (i - n) * x0) / (n + 1);
     return scale;
   }
   scale.domain = function(_) {
@@ -14474,7 +14796,8 @@ function timeInterval(floori, offseti, count2, field) {
     const range5 = [];
     start = interval.ceil(start);
     step = step == null ? 1 : Math.floor(step);
-    if (!(start < stop) || !(step > 0)) return range5;
+    if (!(start < stop) || !(step > 0))
+      return range5;
     let previous;
     do
       range5.push(previous = /* @__PURE__ */ new Date(+start)), offseti(start, step), floori(start);
@@ -14483,17 +14806,21 @@ function timeInterval(floori, offseti, count2, field) {
   };
   interval.filter = (test) => {
     return timeInterval((date2) => {
-      if (date2 >= date2) while (floori(date2), !test(date2)) date2.setTime(date2 - 1);
+      if (date2 >= date2)
+        while (floori(date2), !test(date2))
+          date2.setTime(date2 - 1);
     }, (date2, step) => {
       if (date2 >= date2) {
-        if (step < 0) while (++step <= 0) {
-          while (offseti(date2, -1), !test(date2)) {
+        if (step < 0)
+          while (++step <= 0) {
+            while (offseti(date2, -1), !test(date2)) {
+            }
           }
-        }
-        else while (--step >= 0) {
-          while (offseti(date2, 1), !test(date2)) {
+        else
+          while (--step >= 0) {
+            while (offseti(date2, 1), !test(date2)) {
+            }
           }
-        }
       }
     });
   };
@@ -14520,8 +14847,10 @@ var millisecond = timeInterval(() => {
 });
 millisecond.every = (k2) => {
   k2 = Math.floor(k2);
-  if (!isFinite(k2) || !(k2 > 0)) return null;
-  if (!(k2 > 1)) return millisecond;
+  if (!isFinite(k2) || !(k2 > 0))
+    return null;
+  if (!(k2 > 1))
+    return millisecond;
   return timeInterval((date2) => {
     date2.setTime(Math.floor(date2 / k2) * k2);
   }, (date2, step) => {
@@ -14766,7 +15095,8 @@ function ticker(year, month, week, day, hour, minute) {
   ];
   function ticks2(start, stop, count2) {
     const reverse3 = stop < start;
-    if (reverse3) [start, stop] = [stop, start];
+    if (reverse3)
+      [start, stop] = [stop, start];
     const interval = count2 && typeof count2.range === "function" ? count2 : tickInterval(start, stop, count2);
     const ticks3 = interval ? interval.range(start, +stop + 1) : [];
     return reverse3 ? ticks3.reverse() : ticks3;
@@ -14774,8 +15104,10 @@ function ticker(year, month, week, day, hour, minute) {
   function tickInterval(start, stop, count2) {
     const target = Math.abs(stop - start) / count2;
     const i = bisector(([, , step2]) => step2).right(tickIntervals, target);
-    if (i === tickIntervals.length) return year.every(tickStep(start / durationYear, stop / durationYear, count2));
-    if (i === 0) return millisecond.every(Math.max(tickStep(start, stop, count2), 1));
+    if (i === tickIntervals.length)
+      return year.every(tickStep(start / durationYear, stop / durationYear, count2));
+    if (i === 0)
+      return millisecond.every(Math.max(tickStep(start, stop, count2), 1));
     const [t, step] = tickIntervals[target / tickIntervals[i - 1][2] < tickIntervals[i][2] / target ? i - 1 : i];
     return t.every(step);
   }
@@ -14918,13 +15250,17 @@ function formatLocale(locale3) {
   function newFormat(specifier, formats2) {
     return function(date2) {
       var string = [], i = -1, j = 0, n = specifier.length, c2, pad2, format2;
-      if (!(date2 instanceof Date)) date2 = /* @__PURE__ */ new Date(+date2);
+      if (!(date2 instanceof Date))
+        date2 = /* @__PURE__ */ new Date(+date2);
       while (++i < n) {
         if (specifier.charCodeAt(i) === 37) {
           string.push(specifier.slice(j, i));
-          if ((pad2 = pads[c2 = specifier.charAt(++i)]) != null) c2 = specifier.charAt(++i);
-          else pad2 = c2 === "e" ? " " : "0";
-          if (format2 = formats2[c2]) c2 = format2(date2, pad2);
+          if ((pad2 = pads[c2 = specifier.charAt(++i)]) != null)
+            c2 = specifier.charAt(++i);
+          else
+            pad2 = c2 === "e" ? " " : "0";
+          if (format2 = formats2[c2])
+            c2 = format2(date2, pad2);
           string.push(c2);
           j = i + 1;
         }
@@ -14936,15 +15272,23 @@ function formatLocale(locale3) {
   function newParse(specifier, Z) {
     return function(string) {
       var d = newDate(1900, void 0, 1), i = parseSpecifier(d, specifier, string += "", 0), week, day;
-      if (i != string.length) return null;
-      if ("Q" in d) return new Date(d.Q);
-      if ("s" in d) return new Date(d.s * 1e3 + ("L" in d ? d.L : 0));
-      if (Z && !("Z" in d)) d.Z = 0;
-      if ("p" in d) d.H = d.H % 12 + d.p * 12;
-      if (d.m === void 0) d.m = "q" in d ? d.q : 0;
+      if (i != string.length)
+        return null;
+      if ("Q" in d)
+        return new Date(d.Q);
+      if ("s" in d)
+        return new Date(d.s * 1e3 + ("L" in d ? d.L : 0));
+      if (Z && !("Z" in d))
+        d.Z = 0;
+      if ("p" in d)
+        d.H = d.H % 12 + d.p * 12;
+      if (d.m === void 0)
+        d.m = "q" in d ? d.q : 0;
       if ("V" in d) {
-        if (d.V < 1 || d.V > 53) return null;
-        if (!("w" in d)) d.w = 1;
+        if (d.V < 1 || d.V > 53)
+          return null;
+        if (!("w" in d))
+          d.w = 1;
         if ("Z" in d) {
           week = utcDate(newDate(d.y, 0, 1)), day = week.getUTCDay();
           week = day > 4 || day === 0 ? utcMonday.ceil(week) : utcMonday(week);
@@ -14961,7 +15305,8 @@ function formatLocale(locale3) {
           d.d = week.getDate() + (d.w + 6) % 7;
         }
       } else if ("W" in d || "U" in d) {
-        if (!("w" in d)) d.w = "u" in d ? d.u % 7 : "W" in d ? 1 : 0;
+        if (!("w" in d))
+          d.w = "u" in d ? d.u % 7 : "W" in d ? 1 : 0;
         day = "Z" in d ? utcDate(newDate(d.y, 0, 1)).getUTCDay() : localDate(newDate(d.y, 0, 1)).getDay();
         d.m = 0;
         d.d = "W" in d ? (d.w + 6) % 7 + d.W * 7 - (day + 5) % 7 : d.w + d.U * 7 - (day + 6) % 7;
@@ -14977,12 +15322,14 @@ function formatLocale(locale3) {
   function parseSpecifier(d, specifier, string, j) {
     var i = 0, n = specifier.length, m = string.length, c2, parse;
     while (i < n) {
-      if (j >= m) return -1;
+      if (j >= m)
+        return -1;
       c2 = specifier.charCodeAt(i++);
       if (c2 === 37) {
         c2 = specifier.charAt(i++);
         parse = parses[c2 in pads ? specifier.charAt(i++) : c2];
-        if (!parse || (j = parse(d, string, j)) < 0) return -1;
+        if (!parse || (j = parse(d, string, j)) < 0)
+          return -1;
       } else if (c2 != string.charCodeAt(j++)) {
         return -1;
       }
@@ -15392,7 +15739,8 @@ function calendar(ticks2, tickInterval, year, month, week, day, hour, minute, se
   };
   scale.nice = function(interval) {
     var d = domain();
-    if (!interval || typeof interval.range !== "function") interval = tickInterval(d[0], d[d.length - 1], interval == null ? 10 : interval);
+    if (!interval || typeof interval.range !== "function")
+      interval = tickInterval(d[0], d[d.length - 1], interval == null ? 10 : interval);
     return interval ? domain(nice2(d, interval)) : scale;
   };
   scale.copy = function() {
@@ -15479,12 +15827,16 @@ function sequentialSqrt() {
 function sequentialQuantile() {
   var domain = [], interpolator = identity3;
   function scale(x2) {
-    if (x2 != null && !isNaN(x2 = +x2)) return interpolator((bisect_default(domain, x2, 1) - 1) / (domain.length - 1));
+    if (x2 != null && !isNaN(x2 = +x2))
+      return interpolator((bisect_default(domain, x2, 1) - 1) / (domain.length - 1));
   }
   scale.domain = function(_) {
-    if (!arguments.length) return domain.slice();
+    if (!arguments.length)
+      return domain.slice();
     domain = [];
-    for (let d of _) if (d != null && !isNaN(d = +d)) domain.push(d);
+    for (let d of _)
+      if (d != null && !isNaN(d = +d))
+        domain.push(d);
     domain.sort(ascending);
     return scale;
   };
@@ -15757,25 +16109,31 @@ var MAX_E = mathfloor(MAX_SAFE_INTEGER / LOG_BASE);
 var P = {};
 P.absoluteValue = P.abs = function() {
   var x2 = new this.constructor(this);
-  if (x2.s) x2.s = 1;
+  if (x2.s)
+    x2.s = 1;
   return x2;
 };
 P.comparedTo = P.cmp = function(y2) {
   var i, j, xdL, ydL, x2 = this;
   y2 = new x2.constructor(y2);
-  if (x2.s !== y2.s) return x2.s || -y2.s;
-  if (x2.e !== y2.e) return x2.e > y2.e ^ x2.s < 0 ? 1 : -1;
+  if (x2.s !== y2.s)
+    return x2.s || -y2.s;
+  if (x2.e !== y2.e)
+    return x2.e > y2.e ^ x2.s < 0 ? 1 : -1;
   xdL = x2.d.length;
   ydL = y2.d.length;
   for (i = 0, j = xdL < ydL ? xdL : ydL; i < j; ++i) {
-    if (x2.d[i] !== y2.d[i]) return x2.d[i] > y2.d[i] ^ x2.s < 0 ? 1 : -1;
+    if (x2.d[i] !== y2.d[i])
+      return x2.d[i] > y2.d[i] ^ x2.s < 0 ? 1 : -1;
   }
   return xdL === ydL ? 0 : xdL > ydL ^ x2.s < 0 ? 1 : -1;
 };
 P.decimalPlaces = P.dp = function() {
   var x2 = this, w = x2.d.length - 1, dp = (w - x2.e) * LOG_BASE;
   w = x2.d[w];
-  if (w) for (; w % 10 == 0; w /= 10) dp--;
+  if (w)
+    for (; w % 10 == 0; w /= 10)
+      dp--;
   return dp < 0 ? 0 : dp;
 };
 P.dividedBy = P.div = function(y2) {
@@ -15821,10 +16179,13 @@ P.logarithm = P.log = function(base) {
     base = new Ctor(10);
   } else {
     base = new Ctor(base);
-    if (base.s < 1 || base.eq(ONE)) throw Error(decimalError + "NaN");
+    if (base.s < 1 || base.eq(ONE))
+      throw Error(decimalError + "NaN");
   }
-  if (x2.s < 1) throw Error(decimalError + (x2.s ? "NaN" : "-Infinity"));
-  if (x2.eq(ONE)) return new Ctor(0);
+  if (x2.s < 1)
+    throw Error(decimalError + (x2.s ? "NaN" : "-Infinity"));
+  if (x2.eq(ONE))
+    return new Ctor(0);
   external = false;
   r = divide(ln(x2, wpr), ln(base, wpr), wpr);
   external = true;
@@ -15838,8 +16199,10 @@ P.minus = P.sub = function(y2) {
 P.modulo = P.mod = function(y2) {
   var q, x2 = this, Ctor = x2.constructor, pr = Ctor.precision;
   y2 = new Ctor(y2);
-  if (!y2.s) throw Error(decimalError + "NaN");
-  if (!x2.s) return round(new Ctor(x2), pr);
+  if (!y2.s)
+    throw Error(decimalError + "NaN");
+  if (!x2.s)
+    return round(new Ctor(x2), pr);
   external = false;
   q = divide(x2, y2, 0, 1).times(y2);
   external = true;
@@ -15863,21 +16226,25 @@ P.plus = P.add = function(y2) {
 };
 P.precision = P.sd = function(z) {
   var e, sd, w, x2 = this;
-  if (z !== void 0 && z !== !!z && z !== 1 && z !== 0) throw Error(invalidArgument + z);
+  if (z !== void 0 && z !== !!z && z !== 1 && z !== 0)
+    throw Error(invalidArgument + z);
   e = getBase10Exponent(x2) + 1;
   w = x2.d.length - 1;
   sd = w * LOG_BASE + 1;
   w = x2.d[w];
   if (w) {
-    for (; w % 10 == 0; w /= 10) sd--;
-    for (w = x2.d[0]; w >= 10; w /= 10) sd++;
+    for (; w % 10 == 0; w /= 10)
+      sd--;
+    for (w = x2.d[0]; w >= 10; w /= 10)
+      sd++;
   }
   return z && e > sd ? e : sd;
 };
 P.squareRoot = P.sqrt = function() {
   var e, n, pr, r, s2, t, wpr, x2 = this, Ctor = x2.constructor;
   if (x2.s < 1) {
-    if (!x2.s) return new Ctor(0);
+    if (!x2.s)
+      return new Ctor(0);
     throw Error(decimalError + "NaN");
   }
   e = getBase10Exponent(x2);
@@ -15885,7 +16252,8 @@ P.squareRoot = P.sqrt = function() {
   s2 = Math.sqrt(+x2);
   if (s2 == 0 || s2 == 1 / 0) {
     n = digitsToString(x2.d);
-    if ((n.length + e) % 2 == 0) n += "0";
+    if ((n.length + e) % 2 == 0)
+      n += "0";
     s2 = Math.sqrt(n);
     e = mathfloor((e + 1) / 2) - (e < 0 || e % 2);
     if (s2 == 1 / 0) {
@@ -15922,7 +16290,8 @@ P.squareRoot = P.sqrt = function() {
 };
 P.times = P.mul = function(y2) {
   var carry, e, i, k2, r, rL, t, xdL, ydL, x2 = this, Ctor = x2.constructor, xd = x2.d, yd = (y2 = new Ctor(y2)).d;
-  if (!x2.s || !y2.s) return new Ctor(0);
+  if (!x2.s || !y2.s)
+    return new Ctor(0);
   y2.s *= x2.s;
   e = x2.e + y2.e;
   xdL = xd.length;
@@ -15937,7 +16306,8 @@ P.times = P.mul = function(y2) {
   }
   r = [];
   rL = xdL + ydL;
-  for (i = rL; i--; ) r.push(0);
+  for (i = rL; i--; )
+    r.push(0);
   for (i = ydL; --i >= 0; ) {
     carry = 0;
     for (k2 = xdL + i; k2 > i; ) {
@@ -15947,9 +16317,12 @@ P.times = P.mul = function(y2) {
     }
     r[k2] = (r[k2] + carry) % BASE | 0;
   }
-  for (; !r[--rL]; ) r.pop();
-  if (carry) ++e;
-  else r.shift();
+  for (; !r[--rL]; )
+    r.pop();
+  if (carry)
+    ++e;
+  else
+    r.shift();
   y2.d = r;
   y2.e = e;
   return external ? round(y2, Ctor.precision) : y2;
@@ -15957,10 +16330,13 @@ P.times = P.mul = function(y2) {
 P.toDecimalPlaces = P.todp = function(dp, rm) {
   var x2 = this, Ctor = x2.constructor;
   x2 = new Ctor(x2);
-  if (dp === void 0) return x2;
+  if (dp === void 0)
+    return x2;
   checkInt32(dp, 0, MAX_DIGITS);
-  if (rm === void 0) rm = Ctor.rounding;
-  else checkInt32(rm, 0, 8);
+  if (rm === void 0)
+    rm = Ctor.rounding;
+  else
+    checkInt32(rm, 0, 8);
   return round(x2, dp + getBase10Exponent(x2) + 1, rm);
 };
 P.toExponential = function(dp, rm) {
@@ -15969,8 +16345,10 @@ P.toExponential = function(dp, rm) {
     str = toString(x2, true);
   } else {
     checkInt32(dp, 0, MAX_DIGITS);
-    if (rm === void 0) rm = Ctor.rounding;
-    else checkInt32(rm, 0, 8);
+    if (rm === void 0)
+      rm = Ctor.rounding;
+    else
+      checkInt32(rm, 0, 8);
     x2 = round(new Ctor(x2), dp + 1, rm);
     str = toString(x2, true, dp + 1);
   }
@@ -15978,10 +16356,13 @@ P.toExponential = function(dp, rm) {
 };
 P.toFixed = function(dp, rm) {
   var str, y2, x2 = this, Ctor = x2.constructor;
-  if (dp === void 0) return toString(x2);
+  if (dp === void 0)
+    return toString(x2);
   checkInt32(dp, 0, MAX_DIGITS);
-  if (rm === void 0) rm = Ctor.rounding;
-  else checkInt32(rm, 0, 8);
+  if (rm === void 0)
+    rm = Ctor.rounding;
+  else
+    checkInt32(rm, 0, 8);
   y2 = round(new Ctor(x2), dp + getBase10Exponent(x2) + 1, rm);
   str = toString(y2.abs(), false, dp + getBase10Exponent(y2) + 1);
   return x2.isneg() && !x2.isZero() ? "-" + str : str;
@@ -15995,21 +16376,26 @@ P.toNumber = function() {
 };
 P.toPower = P.pow = function(y2) {
   var e, k2, pr, r, sign2, yIsInt, x2 = this, Ctor = x2.constructor, guard = 12, yn = +(y2 = new Ctor(y2));
-  if (!y2.s) return new Ctor(ONE);
+  if (!y2.s)
+    return new Ctor(ONE);
   x2 = new Ctor(x2);
   if (!x2.s) {
-    if (y2.s < 1) throw Error(decimalError + "Infinity");
+    if (y2.s < 1)
+      throw Error(decimalError + "Infinity");
     return x2;
   }
-  if (x2.eq(ONE)) return x2;
+  if (x2.eq(ONE))
+    return x2;
   pr = Ctor.precision;
-  if (y2.eq(ONE)) return round(x2, pr);
+  if (y2.eq(ONE))
+    return round(x2, pr);
   e = y2.e;
   k2 = y2.d.length - 1;
   yIsInt = e >= k2;
   sign2 = x2.s;
   if (!yIsInt) {
-    if (sign2 < 0) throw Error(decimalError + "NaN");
+    if (sign2 < 0)
+      throw Error(decimalError + "NaN");
   } else if ((k2 = yn < 0 ? -yn : yn) <= MAX_SAFE_INTEGER) {
     r = new Ctor(ONE);
     e = Math.ceil(pr / LOG_BASE + 4);
@@ -16020,7 +16406,8 @@ P.toPower = P.pow = function(y2) {
         truncate(r.d, e);
       }
       k2 = mathfloor(k2 / 2);
-      if (k2 === 0) break;
+      if (k2 === 0)
+        break;
       x2 = x2.times(x2);
       truncate(x2.d, e);
     }
@@ -16043,8 +16430,10 @@ P.toPrecision = function(sd, rm) {
     str = toString(x2, e <= Ctor.toExpNeg || e >= Ctor.toExpPos);
   } else {
     checkInt32(sd, 1, MAX_DIGITS);
-    if (rm === void 0) rm = Ctor.rounding;
-    else checkInt32(rm, 0, 8);
+    if (rm === void 0)
+      rm = Ctor.rounding;
+    else
+      checkInt32(rm, 0, 8);
     x2 = round(new Ctor(x2), sd, rm);
     e = getBase10Exponent(x2);
     str = toString(x2, sd <= e || e <= Ctor.toExpNeg, sd);
@@ -16058,8 +16447,10 @@ P.toSignificantDigits = P.tosd = function(sd, rm) {
     rm = Ctor.rounding;
   } else {
     checkInt32(sd, 1, MAX_DIGITS);
-    if (rm === void 0) rm = Ctor.rounding;
-    else checkInt32(rm, 0, 8);
+    if (rm === void 0)
+      rm = Ctor.rounding;
+    else
+      checkInt32(rm, 0, 8);
   }
   return round(new Ctor(x2), sd, rm);
 };
@@ -16070,7 +16461,8 @@ P.toString = P.valueOf = P.val = P.toJSON = P[Symbol.for("nodejs.util.inspect.cu
 function add(x2, y2) {
   var carry, d, e, i, k2, len, xd, yd, Ctor = x2.constructor, pr = Ctor.precision;
   if (!x2.s || !y2.s) {
-    if (!y2.s) y2 = new Ctor(x2);
+    if (!y2.s)
+      y2 = new Ctor(x2);
     return external ? round(y2, pr) : y2;
   }
   xd = x2.d;
@@ -16096,7 +16488,8 @@ function add(x2, y2) {
       d.length = 1;
     }
     d.reverse();
-    for (; i--; ) d.push(0);
+    for (; i--; )
+      d.push(0);
     d.reverse();
   }
   len = xd.length;
@@ -16115,7 +16508,8 @@ function add(x2, y2) {
     xd.unshift(carry);
     ++e;
   }
-  for (len = xd.length; xd[--len] == 0; ) xd.pop();
+  for (len = xd.length; xd[--len] == 0; )
+    xd.pop();
   y2.d = xd;
   y2.e = e;
   return external ? round(y2, pr) : y2;
@@ -16132,20 +16526,23 @@ function digitsToString(d) {
     for (i = 1; i < indexOfLastWord; i++) {
       ws = d[i] + "";
       k2 = LOG_BASE - ws.length;
-      if (k2) str += getZeroString(k2);
+      if (k2)
+        str += getZeroString(k2);
       str += ws;
     }
     w = d[i];
     ws = w + "";
     k2 = LOG_BASE - ws.length;
-    if (k2) str += getZeroString(k2);
+    if (k2)
+      str += getZeroString(k2);
   } else if (w === 0) {
     return "0";
   }
-  for (; w % 10 === 0; ) w /= 10;
+  for (; w % 10 === 0; )
+    w /= 10;
   return str + w;
 }
-var divide = /* @__PURE__ */ (function() {
+var divide = /* @__PURE__ */ function() {
   function multiplyInteger(x2, k2) {
     var temp, carry = 0, i = x2.length;
     for (x2 = x2.slice(); i--; ) {
@@ -16153,7 +16550,8 @@ var divide = /* @__PURE__ */ (function() {
       x2[i] = temp % BASE | 0;
       carry = temp / BASE | 0;
     }
-    if (carry) x2.unshift(carry);
+    if (carry)
+      x2.unshift(carry);
     return x2;
   }
   function compare(a2, b, aL, bL) {
@@ -16177,19 +16575,24 @@ var divide = /* @__PURE__ */ (function() {
       i = a2[aL] < b[aL] ? 1 : 0;
       a2[aL] = i * BASE + a2[aL] - b[aL];
     }
-    for (; !a2[0] && a2.length > 1; ) a2.shift();
+    for (; !a2[0] && a2.length > 1; )
+      a2.shift();
   }
   return function(x2, y2, pr, dp) {
     var cmp, e, i, k2, prod, prodL, q, qd, rem, remL, rem0, sd, t, xi, xL, yd0, yL, yz, Ctor = x2.constructor, sign2 = x2.s == y2.s ? 1 : -1, xd = x2.d, yd = y2.d;
-    if (!x2.s) return new Ctor(x2);
-    if (!y2.s) throw Error(decimalError + "Division by zero");
+    if (!x2.s)
+      return new Ctor(x2);
+    if (!y2.s)
+      throw Error(decimalError + "Division by zero");
     e = x2.e - y2.e;
     yL = yd.length;
     xL = xd.length;
     q = new Ctor(sign2);
     qd = q.d = [];
-    for (i = 0; yd[i] == (xd[i] || 0); ) ++i;
-    if (yd[i] > (xd[i] || 0)) --e;
+    for (i = 0; yd[i] == (xd[i] || 0); )
+      ++i;
+    if (yd[i] > (xd[i] || 0))
+      --e;
     if (pr == null) {
       sd = pr = Ctor.precision;
     } else if (dp) {
@@ -16197,7 +16600,8 @@ var divide = /* @__PURE__ */ (function() {
     } else {
       sd = pr;
     }
-    if (sd < 0) return new Ctor(0);
+    if (sd < 0)
+      return new Ctor(0);
     sd = sd / LOG_BASE + 2 | 0;
     i = 0;
     if (yL == 1) {
@@ -16220,20 +16624,24 @@ var divide = /* @__PURE__ */ (function() {
       xi = yL;
       rem = xd.slice(0, yL);
       remL = rem.length;
-      for (; remL < yL; ) rem[remL++] = 0;
+      for (; remL < yL; )
+        rem[remL++] = 0;
       yz = yd.slice();
       yz.unshift(0);
       yd0 = yd[0];
-      if (yd[1] >= BASE / 2) ++yd0;
+      if (yd[1] >= BASE / 2)
+        ++yd0;
       do {
         k2 = 0;
         cmp = compare(yd, rem, yL, remL);
         if (cmp < 0) {
           rem0 = rem[0];
-          if (yL != remL) rem0 = rem0 * BASE + (rem[1] || 0);
+          if (yL != remL)
+            rem0 = rem0 * BASE + (rem[1] || 0);
           k2 = rem0 / yd0 | 0;
           if (k2 > 1) {
-            if (k2 >= BASE) k2 = BASE - 1;
+            if (k2 >= BASE)
+              k2 = BASE - 1;
             prod = multiplyInteger(yd, k2);
             prodL = prod.length;
             remL = rem.length;
@@ -16243,11 +16651,13 @@ var divide = /* @__PURE__ */ (function() {
               subtract2(prod, yL < prodL ? yz : yd, prodL);
             }
           } else {
-            if (k2 == 0) cmp = k2 = 1;
+            if (k2 == 0)
+              cmp = k2 = 1;
             prod = yd.slice();
           }
           prodL = prod.length;
-          if (prodL < remL) prod.unshift(0);
+          if (prodL < remL)
+            prod.unshift(0);
           subtract2(rem, prod, remL);
           if (cmp == -1) {
             remL = rem.length;
@@ -16271,15 +16681,18 @@ var divide = /* @__PURE__ */ (function() {
         }
       } while ((xi++ < xL || rem[0] !== void 0) && sd--);
     }
-    if (!qd[0]) qd.shift();
+    if (!qd[0])
+      qd.shift();
     q.e = e;
     return round(q, dp ? pr + getBase10Exponent(q) + 1 : pr);
   };
-})();
+}();
 function exp(x2, sd) {
   var denominator, guard, pow2, sum3, t, wpr, i = 0, k2 = 0, Ctor = x2.constructor, pr = Ctor.precision;
-  if (getBase10Exponent(x2) > 16) throw Error(exponentOutOfRange + getBase10Exponent(x2));
-  if (!x2.s) return new Ctor(ONE);
+  if (getBase10Exponent(x2) > 16)
+    throw Error(exponentOutOfRange + getBase10Exponent(x2));
+  if (!x2.s)
+    return new Ctor(ONE);
   if (sd == null) {
     external = false;
     wpr = pr;
@@ -16300,7 +16713,8 @@ function exp(x2, sd) {
     denominator = denominator.times(++i);
     t = sum3.plus(divide(pow2, denominator, wpr));
     if (digitsToString(t.d).slice(0, wpr) === digitsToString(sum3.d).slice(0, wpr)) {
-      while (k2--) sum3 = round(sum3.times(sum3), wpr);
+      while (k2--)
+        sum3 = round(sum3.times(sum3), wpr);
       Ctor.precision = pr;
       return sd == null ? (external = true, round(sum3, pr)) : sum3;
     }
@@ -16309,26 +16723,31 @@ function exp(x2, sd) {
 }
 function getBase10Exponent(x2) {
   var e = x2.e * LOG_BASE, w = x2.d[0];
-  for (; w >= 10; w /= 10) e++;
+  for (; w >= 10; w /= 10)
+    e++;
   return e;
 }
 function getLn10(Ctor, sd, pr) {
   if (sd > Ctor.LN10.sd()) {
     external = true;
-    if (pr) Ctor.precision = pr;
+    if (pr)
+      Ctor.precision = pr;
     throw Error(decimalError + "LN10 precision limit exceeded");
   }
   return round(new Ctor(Ctor.LN10), sd);
 }
 function getZeroString(k2) {
   var zs = "";
-  for (; k2--; ) zs += "0";
+  for (; k2--; )
+    zs += "0";
   return zs;
 }
 function ln(y2, sd) {
   var c2, c0, denominator, e, numerator, sum3, t, wpr, x2, n = 1, guard = 10, x3 = y2, xd = x3.d, Ctor = x3.constructor, pr = Ctor.precision;
-  if (x3.s < 1) throw Error(decimalError + (x3.s ? "NaN" : "-Infinity"));
-  if (x3.eq(ONE)) return new Ctor(0);
+  if (x3.s < 1)
+    throw Error(decimalError + (x3.s ? "NaN" : "-Infinity"));
+  if (x3.eq(ONE))
+    return new Ctor(0);
   if (sd == null) {
     external = false;
     wpr = pr;
@@ -16336,7 +16755,8 @@ function ln(y2, sd) {
     wpr = sd;
   }
   if (x3.eq(10)) {
-    if (sd == null) external = true;
+    if (sd == null)
+      external = true;
     return getLn10(Ctor, wpr);
   }
   wpr += guard;
@@ -16372,7 +16792,8 @@ function ln(y2, sd) {
     t = sum3.plus(divide(numerator, new Ctor(denominator), wpr));
     if (digitsToString(t.d).slice(0, wpr) === digitsToString(sum3.d).slice(0, wpr)) {
       sum3 = sum3.times(2);
-      if (e !== 0) sum3 = sum3.plus(getLn10(Ctor, wpr + 2, pr).times(e + ""));
+      if (e !== 0)
+        sum3 = sum3.plus(getLn10(Ctor, wpr + 2, pr).times(e + ""));
       sum3 = divide(sum3, new Ctor(n), wpr);
       Ctor.precision = pr;
       return sd == null ? (external = true, round(sum3, pr)) : sum3;
@@ -16383,16 +16804,20 @@ function ln(y2, sd) {
 }
 function parseDecimal(x2, str) {
   var e, i, len;
-  if ((e = str.indexOf(".")) > -1) str = str.replace(".", "");
+  if ((e = str.indexOf(".")) > -1)
+    str = str.replace(".", "");
   if ((i = str.search(/e/i)) > 0) {
-    if (e < 0) e = i;
+    if (e < 0)
+      e = i;
     e += +str.slice(i + 1);
     str = str.substring(0, i);
   } else if (e < 0) {
     e = str.length;
   }
-  for (i = 0; str.charCodeAt(i) === 48; ) ++i;
-  for (len = str.length; str.charCodeAt(len - 1) === 48; ) --len;
+  for (i = 0; str.charCodeAt(i) === 48; )
+    ++i;
+  for (len = str.length; str.charCodeAt(len - 1) === 48; )
+    --len;
   str = str.slice(i, len);
   if (str) {
     len -= i;
@@ -16400,18 +16825,23 @@ function parseDecimal(x2, str) {
     x2.e = mathfloor(e / LOG_BASE);
     x2.d = [];
     i = (e + 1) % LOG_BASE;
-    if (e < 0) i += LOG_BASE;
+    if (e < 0)
+      i += LOG_BASE;
     if (i < len) {
-      if (i) x2.d.push(+str.slice(0, i));
-      for (len -= LOG_BASE; i < len; ) x2.d.push(+str.slice(i, i += LOG_BASE));
+      if (i)
+        x2.d.push(+str.slice(0, i));
+      for (len -= LOG_BASE; i < len; )
+        x2.d.push(+str.slice(i, i += LOG_BASE));
       str = str.slice(i);
       i = LOG_BASE - str.length;
     } else {
       i -= len;
     }
-    for (; i--; ) str += "0";
+    for (; i--; )
+      str += "0";
     x2.d.push(+str);
-    if (external && (x2.e > MAX_E || x2.e < -MAX_E)) throw Error(exponentOutOfRange + e);
+    if (external && (x2.e > MAX_E || x2.e < -MAX_E))
+      throw Error(exponentOutOfRange + e);
   } else {
     x2.s = 0;
     x2.e = 0;
@@ -16421,7 +16851,8 @@ function parseDecimal(x2, str) {
 }
 function round(x2, sd, rm) {
   var i, j, k2, n, rd, doRound, w, xdi, xd = x2.d;
-  for (n = 1, k2 = xd[0]; k2 >= 10; k2 /= 10) n++;
+  for (n = 1, k2 = xd[0]; k2 >= 10; k2 /= 10)
+    n++;
   i = sd - n;
   if (i < 0) {
     i += LOG_BASE;
@@ -16430,9 +16861,11 @@ function round(x2, sd, rm) {
   } else {
     xdi = Math.ceil((i + 1) / LOG_BASE);
     k2 = xd.length;
-    if (xdi >= k2) return x2;
+    if (xdi >= k2)
+      return x2;
     w = k2 = xd[xdi];
-    for (n = 1; k2 >= 10; k2 /= 10) n++;
+    for (n = 1; k2 >= 10; k2 /= 10)
+      n++;
     i %= LOG_BASE;
     j = i - LOG_BASE + n;
   }
@@ -16475,13 +16908,15 @@ function round(x2, sd, rm) {
         break;
       } else {
         xd[xdi] += k2;
-        if (xd[xdi] != BASE) break;
+        if (xd[xdi] != BASE)
+          break;
         xd[xdi--] = 0;
         k2 = 1;
       }
     }
   }
-  for (i = xd.length; xd[--i] === 0; ) xd.pop();
+  for (i = xd.length; xd[--i] === 0; )
+    xd.pop();
   if (external && (x2.e > MAX_E || x2.e < -MAX_E)) {
     throw Error(exponentOutOfRange + getBase10Exponent(x2));
   }
@@ -16490,8 +16925,10 @@ function round(x2, sd, rm) {
 function subtract(x2, y2) {
   var d, e, i, j, k2, len, xd, xe, xLTy, yd, Ctor = x2.constructor, pr = Ctor.precision;
   if (!x2.s || !y2.s) {
-    if (y2.s) y2.s = -y2.s;
-    else y2 = new Ctor(x2);
+    if (y2.s)
+      y2.s = -y2.s;
+    else
+      y2 = new Ctor(x2);
     return external ? round(y2, pr) : y2;
   }
   xd = x2.d;
@@ -16517,13 +16954,15 @@ function subtract(x2, y2) {
       d.length = 1;
     }
     d.reverse();
-    for (i = k2; i--; ) d.push(0);
+    for (i = k2; i--; )
+      d.push(0);
     d.reverse();
   } else {
     i = xd.length;
     len = yd.length;
     xLTy = i < len;
-    if (xLTy) len = i;
+    if (xLTy)
+      len = i;
     for (i = 0; i < len; i++) {
       if (xd[i] != yd[i]) {
         xLTy = xd[i] < yd[i];
@@ -16539,18 +16978,23 @@ function subtract(x2, y2) {
     y2.s = -y2.s;
   }
   len = xd.length;
-  for (i = yd.length - len; i > 0; --i) xd[len++] = 0;
+  for (i = yd.length - len; i > 0; --i)
+    xd[len++] = 0;
   for (i = yd.length; i > k2; ) {
     if (xd[--i] < yd[i]) {
-      for (j = i; j && xd[--j] === 0; ) xd[j] = BASE - 1;
+      for (j = i; j && xd[--j] === 0; )
+        xd[j] = BASE - 1;
       --xd[j];
       xd[i] += BASE;
     }
     xd[i] -= yd[i];
   }
-  for (; xd[--len] === 0; ) xd.pop();
-  for (; xd[0] === 0; xd.shift()) --e;
-  if (!xd[0]) return new Ctor(0);
+  for (; xd[--len] === 0; )
+    xd.pop();
+  for (; xd[0] === 0; xd.shift())
+    --e;
+  if (!xd[0])
+    return new Ctor(0);
   y2.d = xd;
   y2.e = e;
   return external ? round(y2, pr) : y2;
@@ -16566,14 +17010,18 @@ function toString(x2, isExp, sd) {
     str = str + (e < 0 ? "e" : "e+") + e;
   } else if (e < 0) {
     str = "0." + getZeroString(-e - 1) + str;
-    if (sd && (k2 = sd - len) > 0) str += getZeroString(k2);
+    if (sd && (k2 = sd - len) > 0)
+      str += getZeroString(k2);
   } else if (e >= len) {
     str += getZeroString(e + 1 - len);
-    if (sd && (k2 = sd - e - 1) > 0) str = str + "." + getZeroString(k2);
+    if (sd && (k2 = sd - e - 1) > 0)
+      str = str + "." + getZeroString(k2);
   } else {
-    if ((k2 = e + 1) < len) str = str.slice(0, k2) + "." + str.slice(k2);
+    if ((k2 = e + 1) < len)
+      str = str.slice(0, k2) + "." + str.slice(k2);
     if (sd && (k2 = sd - len) > 0) {
-      if (e + 1 === len) str += ".";
+      if (e + 1 === len)
+        str += ".";
       str += getZeroString(k2);
     }
   }
@@ -16589,7 +17037,8 @@ function clone(obj) {
   var i, p, ps;
   function Decimal2(value) {
     var x2 = this;
-    if (!(x2 instanceof Decimal2)) return new Decimal2(value);
+    if (!(x2 instanceof Decimal2))
+      return new Decimal2(value);
     x2.constructor = Decimal2;
     if (value instanceof Decimal2) {
       x2.s = value.s;
@@ -16627,8 +17076,10 @@ function clone(obj) {
     } else {
       x2.s = 1;
     }
-    if (isDecimal.test(value)) parseDecimal(x2, value);
-    else throw Error(invalidArgument + value);
+    if (isDecimal.test(value))
+      parseDecimal(x2, value);
+    else
+      throw Error(invalidArgument + value);
   }
   Decimal2.prototype = P;
   Decimal2.ROUND_UP = 0;
@@ -16642,10 +17093,13 @@ function clone(obj) {
   Decimal2.ROUND_HALF_FLOOR = 8;
   Decimal2.clone = clone;
   Decimal2.config = Decimal2.set = config;
-  if (obj === void 0) obj = {};
+  if (obj === void 0)
+    obj = {};
   if (obj) {
     ps = ["precision", "rounding", "toExpNeg", "toExpPos", "LN10"];
-    for (i = 0; i < ps.length; ) if (!obj.hasOwnProperty(p = ps[i++])) obj[p] = this[p];
+    for (i = 0; i < ps.length; )
+      if (!obj.hasOwnProperty(p = ps[i++]))
+        obj[p] = this[p];
   }
   Decimal2.config(obj);
   return Decimal2;
@@ -16670,13 +17124,17 @@ function config(obj) {
   ];
   for (i = 0; i < ps.length; i += 3) {
     if ((v = obj[p = ps[i]]) !== void 0) {
-      if (mathfloor(v) === v && v >= ps[i + 1] && v <= ps[i + 2]) this[p] = v;
-      else throw Error(invalidArgument + p + ": " + v);
+      if (mathfloor(v) === v && v >= ps[i + 1] && v <= ps[i + 2])
+        this[p] = v;
+      else
+        throw Error(invalidArgument + p + ": " + v);
     }
   }
   if ((v = obj[p = "LN10"]) !== void 0) {
-    if (v == Math.LN10) this[p] = new this(v);
-    else throw Error(invalidArgument + p + ": " + v);
+    if (v == Math.LN10)
+      this[p] = new this(v);
+    else
+      throw Error(invalidArgument + p + ": " + v);
   }
   return this;
 }
@@ -17293,11 +17751,13 @@ function _toPropertyKey16(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive16(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -18373,8 +18833,6 @@ var selectChartDirection = createSelector([selectChartLayout, selectAllXAxes, se
     case "vertical": {
       return allYAxes.some((axis) => axis.reversed) ? "bottom-to-top" : "top-to-bottom";
     }
-    // TODO: make this better. For now, right arrow triggers "forward", left arrow "back"
-    // however, the tooltip moves an unintuitive direction because of how the indices are rendered
     case "centric":
     case "radial": {
       return "left-to-right";
@@ -18589,11 +19047,13 @@ function _toPropertyKey17(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive17(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -18801,11 +19261,13 @@ function _toPropertyKey18(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive18(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -19046,11 +19508,13 @@ function _toPropertyKey19(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive19(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -19101,11 +19565,13 @@ function _toPropertyKey20(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive20(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -19370,11 +19836,13 @@ function _toPropertyKey21(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive21(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -19518,7 +19986,8 @@ function _extends12() {
   return _extends12 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends12.apply(null, arguments);
@@ -19552,11 +20021,13 @@ function _toPropertyKey22(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive22(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -19677,7 +20148,8 @@ var BRUSH_SYNC_EVENT = "recharts.syncEvent.brush";
 
 // node_modules/recharts/es6/state/optionsSlice.js
 function arrayTooltipSearcher(data, strIndex) {
-  if (!strIndex) return void 0;
+  if (!strIndex)
+    return void 0;
   var numIndex = Number.parseInt(strIndex, 10);
   if (isNan(numIndex)) {
     return void 0;
@@ -19788,31 +20260,38 @@ function _toPropertyKey23(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive23(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties7(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose7(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose7(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function useTooltipSyncEventsListener() {
@@ -20029,11 +20508,13 @@ function _toPropertyKey24(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive24(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -20190,11 +20671,13 @@ function _toPropertyKey25(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive25(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -20261,11 +20744,13 @@ function _toPropertyKey26(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive26(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -20479,27 +20964,33 @@ function _extends13() {
   return _extends13 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends13.apply(null, arguments);
 }
 function _objectWithoutProperties8(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose8(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose8(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var BREAKING_SPACES = /[ \f\n\r\t\v\u2028\u2029]+/;
@@ -20753,21 +21244,26 @@ var React17 = __toESM(require_react());
 var import_react25 = __toESM(require_react());
 var _excluded9 = ["labelRef"];
 function _objectWithoutProperties9(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose9(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose9(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function ownKeys26(e, r) {
@@ -20799,11 +21295,13 @@ function _toPropertyKey27(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive27(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -20812,7 +21310,8 @@ function _extends14() {
   return _extends14 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends14.apply(null, arguments);
@@ -21306,27 +21805,33 @@ function _extends15() {
   return _extends15 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends15.apply(null, arguments);
 }
 function _objectWithoutProperties10(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose10(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose10(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var defaultAccessor = (entry) => Array.isArray(entry.value) ? (0, import_last.default)(entry.value) : entry.value;
@@ -21420,21 +21925,26 @@ var React19 = __toESM(require_react());
 var import_react27 = __toESM(require_react());
 var _excluded11 = ["component"];
 function _objectWithoutProperties11(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose11(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose11(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function Customized(_ref2) {
@@ -21462,27 +21972,33 @@ function _extends16() {
   return _extends16 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends16.apply(null, arguments);
 }
 function _objectWithoutProperties12(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose12(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose12(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var isValidatePoint = (point6) => {
@@ -21566,7 +22082,8 @@ function _extends17() {
   return _extends17 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends17.apply(null, arguments);
@@ -21696,28 +22213,34 @@ var selectPolarGridRadii = createSelector([selectRadiusAxisTicks], (ticks2) => {
 // node_modules/recharts/es6/polar/PolarGrid.js
 var _excluded13 = ["gridType", "radialLines", "angleAxisId", "radiusAxisId", "cx", "cy", "innerRadius", "outerRadius", "polarAngles", "polarRadius"];
 function _objectWithoutProperties13(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose13(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose13(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function _extends18() {
   return _extends18 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends18.apply(null, arguments);
@@ -21751,11 +22274,13 @@ function _toPropertyKey28(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive28(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -21972,7 +22497,8 @@ function _extends19() {
   return _extends19 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends19.apply(null, arguments);
@@ -22006,31 +22532,38 @@ function _toPropertyKey29(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive29(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties14(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose14(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose14(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var AXIS_TYPE = "radiusAxis";
@@ -22200,7 +22733,8 @@ function _extends20() {
   return _extends20 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends20.apply(null, arguments);
@@ -22234,31 +22768,38 @@ function _toPropertyKey30(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive30(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties15(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose15(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose15(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var eps = 1e-5;
@@ -22497,11 +23038,13 @@ function _toPropertyKey31(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive31(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -22593,7 +23136,8 @@ var toArray = (children) => {
   }
   var result = [];
   import_react30.Children.forEach(children, (child) => {
-    if (isNullish(child)) return;
+    if (isNullish(child))
+      return;
     if ((0, import_react_is.isFragment)(child)) {
       result = result.concat(toArray(child.props.children));
     } else {
@@ -22664,11 +23208,13 @@ function _toPropertyKey32(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive32(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -22677,7 +23223,8 @@ function _extends21() {
   return _extends21 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends21.apply(null, arguments);
@@ -22795,21 +23342,26 @@ var Trapezoid = (outsideProps) => {
 // node_modules/recharts/es6/util/ActiveShapeUtils.js
 var _excluded16 = ["option", "shapeType", "propTransformer", "activeClassName"];
 function _objectWithoutProperties16(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose16(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose16(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function ownKeys32(e, r) {
@@ -22841,11 +23393,13 @@ function _toPropertyKey33(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive33(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -23226,11 +23780,13 @@ function _toPropertyKey34(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive34(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -23239,27 +23795,33 @@ function _extends22() {
   return _extends22 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends22.apply(null, arguments);
 }
 function _objectWithoutProperties17(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose17(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose17(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function SetPiePayloadLegend(props) {
@@ -23476,7 +24038,8 @@ function PieSectors(props) {
     return null;
   }
   return React29.createElement(React29.Fragment, null, sectors.map((entry, i) => {
-    if ((entry === null || entry === void 0 ? void 0 : entry.startAngle) === 0 && (entry === null || entry === void 0 ? void 0 : entry.endAngle) === 0 && sectors.length !== 1) return null;
+    if ((entry === null || entry === void 0 ? void 0 : entry.startAngle) === 0 && (entry === null || entry === void 0 ? void 0 : entry.endAngle) === 0 && sectors.length !== 1)
+      return null;
     var graphicalItemMatches = activeGraphicalItemId == null || activeGraphicalItemId === id;
     var isActive = String(i) === activeIndex && (activeDataKey == null || allOtherPieProps.dataKey === activeDataKey) && graphicalItemMatches;
     var inactiveShape = activeIndex ? inactiveShapeProp : null;
@@ -23843,11 +24406,13 @@ function _toPropertyKey35(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive35(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -23856,27 +24421,33 @@ function _extends23() {
   return _extends23 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends23.apply(null, arguments);
 }
 function _objectWithoutProperties18(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose18(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose18(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function DotItem(_ref2) {
@@ -23990,11 +24561,13 @@ function _toPropertyKey36(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive36(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -24209,11 +24782,13 @@ function _toPropertyKey37(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive37(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -24316,11 +24891,13 @@ function _toPropertyKey38(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive38(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -24409,7 +24986,8 @@ function _extends24() {
   return _extends24 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends24.apply(null, arguments);
@@ -24443,31 +25021,38 @@ function _toPropertyKey39(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive39(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties19(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose19(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose19(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function getLegendItemColor(stroke, fill) {
@@ -24861,7 +25446,8 @@ function _extends25() {
   return _extends25 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends25.apply(null, arguments);
@@ -24895,11 +25481,13 @@ function _toPropertyKey40(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive40(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -24955,7 +25543,8 @@ function _extends26() {
   return _extends26 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends26.apply(null, arguments);
@@ -24989,31 +25578,38 @@ function _toPropertyKey41(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive41(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties20(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose20(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose20(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function typeguardBarRectangleProps(_ref2, props) {
@@ -25050,7 +25646,8 @@ function BarRectangle(props) {
 var minPointSizeCallback = function minPointSizeCallback2(minPointSize) {
   var defaultValue = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0;
   return (value, index2) => {
-    if (isNumber(minPointSize)) return minPointSize;
+    if (isNumber(minPointSize))
+      return minPointSize;
     var isValueNumberOrNil = isNumber(value) || isNullish(value);
     if (isValueNumberOrNil) {
       return minPointSize(value, index2);
@@ -25111,21 +25708,26 @@ var errorBarReducer = errorBarSlice.reducer;
 // node_modules/recharts/es6/context/ErrorBarContext.js
 var _excluded21 = ["children"];
 function _objectWithoutProperties21(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose21(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose21(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var initialContextState = {
@@ -25307,7 +25909,8 @@ function createListenerCollection() {
         first = listener2;
       }
       return function unsubscribe() {
-        if (!isSubscribed || first === null) return;
+        if (!isSubscribed || first === null)
+          return;
         isSubscribed = false;
         if (listener2.next) {
           listener2.next.prev = listener2.prev;
@@ -25409,13 +26012,15 @@ function is3(x2, y2) {
   }
 }
 function shallowEqual(objA, objB) {
-  if (is3(objA, objB)) return true;
+  if (is3(objA, objB))
+    return true;
   if (typeof objA !== "object" || objA === null || typeof objB !== "object" || objB === null) {
     return false;
   }
   const keysA = Object.keys(objA);
   const keysB = Object.keys(objB);
-  if (keysA.length !== keysB.length) return false;
+  if (keysA.length !== keysB.length)
+    return false;
   for (let i = 0; i < keysA.length; i++) {
     if (!Object.prototype.hasOwnProperty.call(objB, keysA[i]) || !is3(objA[keysA[i]], objB[keysA[i]])) {
       return false;
@@ -25449,8 +26054,9 @@ var gT = typeof globalThis !== "undefined" ? globalThis : (
   {}
 );
 function getContext() {
-  if (!React37.createContext) return {};
-  const contextMap = gT[ContextKey] ??= /* @__PURE__ */ new Map();
+  if (!React37.createContext)
+    return {};
+  const contextMap = gT[ContextKey] ?? (gT[ContextKey] = /* @__PURE__ */ new Map());
   let realContext = contextMap.get(React37.createContext);
   if (!realContext) {
     realContext = React37.createContext(
@@ -25611,7 +26217,8 @@ function createSelectorHook(context = ReactReduxContext) {
                 );
               }
             }
-            if (firstRun.current) firstRun.current = false;
+            if (firstRun.current)
+              firstRun.current = false;
           }
           return selected;
         }
@@ -25672,7 +26279,8 @@ function _extends27() {
   return _extends27 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends27.apply(null, arguments);
@@ -25706,31 +26314,38 @@ function _toPropertyKey42(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive42(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties22(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose22(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose22(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var computeLegendPayloadFromBarData = (props) => {
@@ -26359,11 +26974,13 @@ function _toPropertyKey43(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive43(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -26651,11 +27268,13 @@ function _toPropertyKey44(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive44(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -26832,7 +27451,8 @@ function _extends28() {
   return _extends28 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends28.apply(null, arguments);
@@ -26866,31 +27486,38 @@ function _toPropertyKey45(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive45(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties23(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose23(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose23(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var STABLE_EMPTY_ARRAY = [];
@@ -27347,11 +27974,13 @@ function _toPropertyKey46(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive46(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -27458,7 +28087,8 @@ function _extends29() {
   return _extends29 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends29.apply(null, arguments);
@@ -27492,11 +28122,13 @@ function _toPropertyKey47(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive47(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -28357,11 +28989,13 @@ function _toPropertyKey48(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive48(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -28611,11 +29245,13 @@ function _toPropertyKey49(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive49(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -28624,7 +29260,8 @@ function _extends30() {
   return _extends30 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends30.apply(null, arguments);
@@ -28653,7 +29290,8 @@ var getHorizontalLineEndPoints = (yCoord, ifOverflow, position2, yAxisOrientatio
   var coord = scales.y.apply(yCoord, {
     position: position2
   });
-  if (isNan(coord)) return null;
+  if (isNan(coord))
+    return null;
   if (ifOverflow === "discard" && !scales.y.isInRange(coord)) {
     return null;
   }
@@ -28674,7 +29312,8 @@ var getVerticalLineEndPoints = (xCoord, ifOverflow, position2, xAxisOrientation,
   var coord = scales.x.apply(xCoord, {
     position: position2
   });
-  if (isNan(coord)) return null;
+  if (isNan(coord))
+    return null;
   if (ifOverflow === "discard" && !scales.x.isInRange(coord)) {
     return null;
   }
@@ -28841,11 +29480,13 @@ function _toPropertyKey50(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive50(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -28854,7 +29495,8 @@ function _extends31() {
   return _extends31 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends31.apply(null, arguments);
@@ -29014,11 +29656,13 @@ function _toPropertyKey51(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive51(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -29027,7 +29671,8 @@ function _extends32() {
   return _extends32 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends32.apply(null, arguments);
@@ -29256,7 +29901,8 @@ function getEquidistantTicks(sign2, boundaries, getTickSize, ticks2, minTickGap)
   }, _ret;
   while (stepsize <= result.length) {
     _ret = _loop();
-    if (_ret) return _ret.v;
+    if (_ret)
+      return _ret.v;
   }
   return [];
 }
@@ -29291,11 +29937,13 @@ function _toPropertyKey52(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive52(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -29484,28 +30132,34 @@ var getCalculatedYAxisWidth = (_ref2) => {
 // node_modules/recharts/es6/cartesian/CartesianAxis.js
 var _excluded30 = ["axisLine", "width", "height", "className", "hide", "ticks", "axisType"];
 function _objectWithoutProperties24(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose24(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose24(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function _extends33() {
   return _extends33 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends33.apply(null, arguments);
@@ -29539,11 +30193,13 @@ function _toPropertyKey53(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive53(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -29941,11 +30597,13 @@ function _toPropertyKey54(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive54(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -29954,27 +30612,33 @@ function _extends34() {
   return _extends34 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends34.apply(null, arguments);
 }
 function _objectWithoutProperties25(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose25(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose25(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var Background2 = (props) => {
@@ -30420,7 +31084,8 @@ function _extends35() {
   return _extends35 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends35.apply(null, arguments);
@@ -30454,31 +31119,38 @@ function _toPropertyKey55(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive55(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties26(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose26(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose26(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var computeLegendPayloadFromAreaData = (props) => {
@@ -31114,27 +31786,33 @@ function _extends36() {
   return _extends36 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends36.apply(null, arguments);
 }
 function _objectWithoutProperties27(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose27(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose27(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function ownKeys55(e, r) {
@@ -31166,11 +31844,13 @@ function _toPropertyKey56(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive56(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -31879,27 +32559,33 @@ function _extends37() {
   return _extends37 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends37.apply(null, arguments);
 }
 function _objectWithoutProperties28(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose28(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose28(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function ScatterSymbol(_ref2) {
@@ -31970,28 +32656,34 @@ var _excluded40 = ["onMouseEnter", "onClick", "onMouseLeave"];
 var _excluded214 = ["id"];
 var _excluded310 = ["animationBegin", "animationDuration", "animationEasing", "hide", "isAnimationActive", "legendType", "lineJointType", "lineType", "shape", "xAxisId", "yAxisId", "zAxisId"];
 function _objectWithoutProperties29(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose29(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose29(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function _extends38() {
   return _extends38 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends38.apply(null, arguments);
@@ -32025,11 +32717,13 @@ function _toPropertyKey57(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive57(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -32549,21 +33243,26 @@ var import_react55 = __toESM(require_react());
 var _excluded41 = ["domain", "range"];
 var _excluded215 = ["domain", "range"];
 function _objectWithoutProperties30(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose30(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose30(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function shortArraysAreEqual(arr1, arr2) {
@@ -32603,27 +33302,33 @@ function _extends39() {
   return _extends39 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends39.apply(null, arguments);
 }
 function _objectWithoutProperties31(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose31(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose31(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function SetXAxisSettings(settings) {
@@ -32749,27 +33454,33 @@ function _extends40() {
   return _extends40 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends40.apply(null, arguments);
 }
 function _objectWithoutProperties32(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose32(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose32(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function SetYAxisSettings(settings) {
@@ -33066,7 +33777,8 @@ function _extends41() {
   return _extends41 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends41.apply(null, arguments);
@@ -33100,31 +33812,38 @@ function _toPropertyKey58(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive58(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
 }
 function _objectWithoutProperties33(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose33(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose33(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function ErrorBarImpl(props) {
@@ -33813,28 +34532,34 @@ function AllZIndexPortals(_ref2) {
 // node_modules/recharts/es6/container/RootSurface.js
 var _excluded48 = ["children"];
 function _objectWithoutProperties34(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose34(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose34(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function _extends42() {
   return _extends42 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends42.apply(null, arguments);
@@ -33981,11 +34706,13 @@ function _toPropertyKey59(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive59(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -33994,7 +34721,8 @@ function _extends43() {
   return _extends43 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends43.apply(null, arguments);
@@ -34296,21 +35024,26 @@ var RechartsWrapper = (0, import_react66.forwardRef)((props, ref) => {
 // node_modules/recharts/es6/chart/CategoricalChart.js
 var _excluded49 = ["width", "height", "responsive", "children", "className", "style", "compact", "title", "desc"];
 function _objectWithoutProperties35(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose35(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose35(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var CategoricalChart = (0, import_react67.forwardRef)((props, ref) => {
@@ -34366,7 +35099,8 @@ function _extends44() {
   return _extends44 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends44.apply(null, arguments);
@@ -34484,27 +35218,33 @@ function _extends45() {
   return _extends45 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends45.apply(null, arguments);
 }
 function _objectWithoutProperties36(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose36(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose36(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 var defaultMargin2 = {
@@ -34611,11 +35351,13 @@ function _toPropertyKey60(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive60(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -34645,28 +35387,34 @@ var import_omit = __toESM(require_omit2());
 var import_get6 = __toESM(require_get2());
 var _excluded51 = ["width", "height", "className", "style", "children", "type"];
 function _objectWithoutProperties37(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose37(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose37(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function _extends46() {
   return _extends46 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends46.apply(null, arguments);
@@ -34700,11 +35448,13 @@ function _toPropertyKey61(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive61(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -35437,27 +36187,33 @@ function _extends47() {
   return _extends47 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends47.apply(null, arguments);
 }
 function _objectWithoutProperties38(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose38(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose38(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function ownKeys61(e, r) {
@@ -35489,11 +36245,13 @@ function _toPropertyKey62(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive62(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -36291,11 +37049,13 @@ function _toPropertyKey63(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive63(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -36380,11 +37140,13 @@ function _toPropertyKey64(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive64(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -36430,7 +37192,8 @@ function _extends48() {
   return _extends48 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends48.apply(null, arguments);
@@ -36464,11 +37227,13 @@ function _toPropertyKey65(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive65(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -36482,7 +37247,8 @@ var defaultTextProps = {
   pointerEvents: "none"
 };
 function getMaxDepthOf(node) {
-  if (!node.children || node.children.length === 0) return 1;
+  if (!node.children || node.children.length === 0)
+    return 1;
   var childDepths = node.children.map((d) => getMaxDepthOf(d));
   return 1 + Math.max(...childDepths);
 }
@@ -36590,7 +37356,8 @@ var SunburstChartImpl = (_ref2) => {
   var sectors = [];
   var positions = /* @__PURE__ */ new Map([]);
   function handleMouseEnter(node, e) {
-    if (onMouseEnter) onMouseEnter(node, e);
+    if (onMouseEnter)
+      onMouseEnter(node, e);
     dispatch(setActiveMouseOverItemIndex({
       activeIndex: node.tooltipIndex,
       activeDataKey: dataKey,
@@ -36598,11 +37365,13 @@ var SunburstChartImpl = (_ref2) => {
     }));
   }
   function handleMouseLeave(node, e) {
-    if (onMouseLeave) onMouseLeave(node, e);
+    if (onMouseLeave)
+      onMouseLeave(node, e);
     dispatch(mouseLeaveItem());
   }
   function handleClick(node) {
-    if (onClick) onClick(node);
+    if (onClick)
+      onClick(node);
     dispatch(setActiveClickItemIndex({
       activeIndex: node.tooltipIndex,
       activeDataKey: dataKey,
@@ -36619,7 +37388,8 @@ var SunburstChartImpl = (_ref2) => {
       nestedActiveTooltipIndex
     } = options3;
     var currentAngle = initialAngle;
-    if (!childNodes) return;
+    if (!childNodes)
+      return;
     childNodes.forEach((d, i) => {
       var _ref3, _d$fill;
       var currentTooltipIndex = depth === 1 ? "[".concat(i, "]") : addToSunburstNodeIndex(i, nestedActiveTooltipIndex);
@@ -36740,7 +37510,8 @@ function _extends49() {
   return _extends49 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends49.apply(null, arguments);
@@ -36774,11 +37545,13 @@ function _toPropertyKey66(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive66(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -36833,11 +37606,13 @@ function _toPropertyKey67(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive67(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -36892,27 +37667,33 @@ function _extends50() {
   return _extends50 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+      for (var r in t)
+        ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
     return n;
   }, _extends50.apply(null, arguments);
 }
 function _objectWithoutProperties39(e, t) {
-  if (null == e) return {};
+  if (null == e)
+    return {};
   var o, r, i = _objectWithoutPropertiesLoose39(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+    for (r = 0; r < n.length; r++)
+      o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
 function _objectWithoutPropertiesLoose39(r, e) {
-  if (null == r) return {};
+  if (null == r)
+    return {};
   var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
+  for (var n in r)
+    if ({}.hasOwnProperty.call(r, n)) {
+      if (-1 !== e.indexOf(n))
+        continue;
+      t[n] = r[n];
+    }
   return t;
 }
 function ownKeys67(e, r) {
@@ -36944,11 +37725,13 @@ function _toPropertyKey68(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 function _toPrimitive68(t, r) {
-  if ("object" != typeof t || !t) return t;
+  if ("object" != typeof t || !t)
+    return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
+    if ("object" != typeof i)
+      return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return ("string" === r ? String : Number)(t);
@@ -37420,4 +38203,50 @@ export {
   useXAxisDomain,
   useYAxisDomain
 };
+/*! Bundled license information:
+
+use-sync-external-store/cjs/use-sync-external-store-shim.development.js:
+  (**
+   * @license React
+   * use-sync-external-store-shim.development.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+
+use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js:
+  (**
+   * @license React
+   * use-sync-external-store-shim/with-selector.development.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+
+react-is/cjs/react-is.development.js:
+  (**
+   * @license React
+   * react-is.development.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+
+use-sync-external-store/cjs/use-sync-external-store-with-selector.development.js:
+  (**
+   * @license React
+   * use-sync-external-store-with-selector.development.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+*/
 //# sourceMappingURL=recharts.js.map
